@@ -31,7 +31,10 @@ $font-weights-map: (
   @return map-get($font-weights-map, $weight-name);
 }
 
-$text-list: ();
+$text-list: (
+  main-title "Noto Sans" semi-bold normal color("extra-white") 30px 64px,
+  main-subtitle "Noto Sans" semi-bold normal color("extra-white") 16px 18px,
+);
 
 $link-list: (navbar "Noto Sans" medium normal color("dark-green") color("dark-orange") 14px 20px,);
 
@@ -232,9 +235,6 @@ $breakpoints: (
 }
 
 %simple-scale {
-  &:hover {
-    transform: scale(1.2);
-  }
   &:active {
     transform: scale(0.9);
   }
@@ -260,5 +260,23 @@ $breakpoints: (
   }
   &::placeholder {
     color: color("green");
+  }
+}
+
+%button-white {
+  @extend %simple-transition;
+  @extend %simple-scale;
+  @include border(all, $style: solid, $color: color("green"));
+  color: color("green");
+  background-color: color("extra-white");
+  font: {
+    family: "Noto Sans";
+    weight: font-weight("medium");
+  }
+  &:hover,
+  &:active {
+    background-color: color("green");
+    color: color("white");
+    @include border(all, $color: color("dark-green"));
   }
 }
