@@ -1,3 +1,91 @@
 @import "./fonts.scss";
 @import "./null.scss";
 @import "./configuration.scss";
+
+// Основные стили
+
+html {
+    background-color: color("white");
+}
+
+.container {
+    @extend %container;
+}
+
+.header {
+    background-color: color("extra-white");
+    &__logo {
+        @include size(default, 80px, 52px);
+        @include respond-to("desktop") {
+            @include size(default, 125px, 80px);
+        }
+    }
+    .menu {
+        @include flex(on, $justify: space-between, $align: center);
+        &:nth-child(2) {
+            display: none;
+            @include respond-to("desktop") {
+                @include flex(on, $justify: space-between, $align: center, $gap: 70px);
+                margin-left: 80px;
+            }
+        }
+        &__link, &__link-active {
+            @extend %navbar;
+        }
+        &__link-active {
+            color: color("dark-orange");
+        }
+    }
+    &__first-bar {
+        @include flex(on, $justify: space-between, $align: center);
+        @include axis-indent(padding, y, 3px);
+        @include respond-to("desktop") {
+            @include flex($justify: flex-start);
+        }
+    }
+    &__second-bar {
+        @include axis-indent(padding, y, 10px);
+        @include border($sides: top, $width: 1px, $style: solid, $color: color("dark-green"));
+        @include respond-to("desktop") {
+            display: none;
+        }
+    }
+    &__search {
+        position: relative;
+        margin-left: auto;
+    }
+    &__input {
+        @extend %input;
+        padding-left: 10px;
+        padding-right: 26px;
+        @include axis-indent(padding, y, 6px);
+        @include size(default, 140px, 28px);
+        font-size: 12px;
+        border-radius: 10px;
+        border-width: 2px;
+        @include respond-to("desktop") {
+            @include size(default, 240px, 50px);
+            font-size: 16px;
+            padding-left: 20px;
+            padding-right: 54px;
+            @include axis-indent(padding, y, 14px);
+            border-radius: 18px;
+            border-width: 3px;
+        }
+    }
+    &__loupe {
+        @include size(default, 13px);
+        position: absolute;
+        color: color("green");
+        &:hover, &:active {
+            color: color("dark-orange");
+        }
+        right: 10px;
+        top: 7px;
+        @include respond-to("desktop") {
+            right: 20px;
+            @include size(default, 24px);
+            top: 13px;
+        }
+    }
+}

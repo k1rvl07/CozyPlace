@@ -1,12 +1,13 @@
 // Переменные, мапы и списки
 
 $colors-map: (
-  "white": #FEFAE0,
-  "extra-white": #FAEDCD,
-  "green": #606C38,
+  "white": #fefae0,
+  "extra-white": #faedcd,
+  "light-green": #ccd5ae,
+  "green": #606c38,
   "dark-green": #283618,
-  "orange": #DDA15E,
-  "dark-orange": #BC6C25,
+  "orange": #dda15e,
+  "dark-orange": #bc6c25
 );
 
 @function color($color-name) {
@@ -29,6 +30,10 @@ $font-weights-map: (
 @function font-weight($weight-name) {
   @return map-get($font-weights-map, $weight-name);
 }
+
+$text-list: ();
+
+$link-list: (navbar "Noto Sans" medium normal color("dark-green") color("dark-orange") 14px 20px,);
 
 // Сложные миксины
 
@@ -154,4 +159,106 @@ $breakpoints: (
 
 // Сложные шаблоны
 
+@each $item in $text-list {
+  $name: nth($item, 1);
+  $font: nth($item, 2);
+  $font-weight: nth($item, 3);
+  $font-style: nth($item, 4);
+  $color: nth($item, 5);
+  $font-size: nth($item, 6);
+  $desktop-font-size: nth($item, 7);
+
+  %#{$name} {
+    font-family: $font;
+    font-weight: font-weight($font-weight);
+    font-style: $font-style;
+    font-size: $font-size;
+    color: $color;
+    @if $font-size != $desktop-font-size {
+      @include respond-to(desktop) {
+        font-size: $desktop-font-size;
+      }
+    }
+  }
+}
+
+@each $item in $link-list {
+  $name: nth($item, 1);
+  $font: nth($item, 2);
+  $font-weight: nth($item, 3);
+  $font-style: nth($item, 4);
+  $color: nth($item, 5);
+  $second-color: nth($item, 6);
+  $font-size: nth($item, 7);
+  $desktop-font-size: nth($item, 8);
+
+  %#{$name} {
+    @extend %simple-transition;
+    font-family: $font;
+    font-weight: font-weight($font-weight);
+    font-style: $font-style;
+    color: $color;
+    font-size: $font-size;
+    &:hover,
+    &:active {
+      color: $second-color;
+    }
+    @if $font-size != $desktop-font-size {
+      @include respond-to(desktop) {
+        font-size: $desktop-font-size;
+      }
+    }
+  }
+}
+
 // Простые шаблоны
+
+%container {
+  width: 300px;
+  margin: 0 auto;
+  @include respond-to(desktop) {
+    width: 1280px;
+  }
+}
+
+%simple-transition {
+  transition: 0.3s;
+  &:hover {
+    transition: 0.3s;
+  }
+  &:active {
+    transition: 0.05s;
+  }
+}
+
+%simple-scale {
+  &:hover {
+    transform: scale(1.2);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+%input {
+  @extend %simple-transition;
+  color: color("green");
+  font: {
+    family: "Noto Sans";
+    weight: font-weight("medium");
+  }
+  background-color: color("extra-white");
+  @include border(all, $style: solid, $color: color("green"));
+  &:hover,
+  &:active {
+    color: color("dark-green");
+    background-color: color("light-green");
+    @include border(all, $color: color("dark-green"));
+    &::placeholder {
+      color: color("dark-green");
+    }
+  }
+  &::placeholder {
+    color: color("green");
+  }
+}
