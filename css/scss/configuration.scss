@@ -3,7 +3,7 @@
 $colors-map: (
   "white": #fefae0,
   "extra-white": #faedcd,
-  "light-green": #ccd5ae,
+  "light-green": #e9edc9,
   "green": #606c38,
   "dark-green": #283618,
   "orange": #dda15e,
@@ -34,6 +34,9 @@ $font-weights-map: (
 $text-list: (
   main-title "Noto Sans" semi-bold normal color("extra-white") 30px 64px,
   main-subtitle "Noto Sans" semi-bold normal color("extra-white") 16px 18px,
+  secondary-title "Noto Sans" bold normal color("green") 26px 42px,
+  about-topic "Noto Sans" medium normal black 16px 26px,
+  simple-text "Noto Sans" medium normal black 14px 20px,
 );
 
 $link-list: (navbar "Noto Sans" medium normal color("dark-green") color("dark-orange") 14px 20px,);

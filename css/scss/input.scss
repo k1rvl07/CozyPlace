@@ -12,6 +12,10 @@ html {
     @extend %container;
 }
 
+.secondary-title {
+    @extend %secondary-title;
+}
+
 .header {
     background-color: color("extra-white");
     &__logo {
@@ -173,6 +177,83 @@ html {
                     display: none;
                 }
             }
+        }
+    }
+}
+
+.about {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__title {
+        margin-bottom: 20px;
+        @include respond-to("desktop") {
+            margin-bottom: 30px;
+        }
+    }
+    &__topic {
+        @extend %about-topic;
+    }
+    &__highlight {
+        font-weight: font-weight("bold");
+        color: color("dark-orange");
+    }
+    &__collage {
+        display: none;
+        margin-top: 30px;
+        @include respond-to("desktop") {
+            @include flex(on, $wrap: wrap, $gap: 10px);
+        }
+        .about__text {
+            &:nth-child(2),
+            &:nth-child(4) {
+                margin-left: auto;
+            }
+        }
+    }
+    &__text {
+        @extend %simple-text;
+        transition: opacity 1s ease-in-out;
+        @include axis-indent(padding, xy, 20px, 20px);
+        @include respond-to("desktop") {
+            @include size(default, 380px, 135px);
+            @include axis-indent(padding, xy, 0px, 0px);
+        }
+    }
+    &__image {
+        @include size(default, 300px, 311px);
+        @include axis-indent(margin, y, 10px);
+        @include respond-to("desktop") {
+            @include size(default, 406px, 421px);
+        }
+    }
+    &__text-slider {
+        background-color: color("light-green");
+        border-radius: 18px;
+        @include respond-to("desktop") {
+            display: none;
+        }
+    }
+    &__info {
+        @include respond-to("desktop") {
+            @include size(default, 796px, 417px);
+        }
+    }
+    &__image-info {
+        @include respond-to("desktop") {
+            @include flex(on, row-reverse, space-between, center);
+        }
+    }
+    &__break-mobile {
+        @include respond-to("desktop") {
+            display: none;
+        }
+    }
+    &__break-desktop {
+        display: none;
+        @include respond-to("desktop") {
+            display: block;
         }
     }
 }
