@@ -1,0 +1,157 @@
+// Переменные, мапы и списки
+
+$colors-map: (
+  "white": #FEFAE0,
+  "extra-white": #FAEDCD,
+  "green": #606C38,
+  "dark-green": #283618,
+  "orange": #DDA15E,
+  "dark-orange": #BC6C25,
+);
+
+@function color($color-name) {
+  @return map-get($colors-map, $color-name);
+}
+
+$font-weights-map: (
+  "thin": 100,
+  "extra-light": 200,
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "semi-bold": 600,
+  "bold": 700,
+  "extra-bold": 800,
+  "black": 900,
+  "extra-black": 1000
+);
+
+@function font-weight($weight-name) {
+  @return map-get($font-weights-map, $weight-name);
+}
+
+// Сложные миксины
+
+$breakpoints: (
+  mobile: 300px,
+  desktop: 1280px
+);
+
+@mixin respond-to($media) {
+  @if map-has-key($breakpoints, $media) {
+    @media only screen and (min-width: map-get($breakpoints, $media)) {
+      @content;
+    }
+  } @else {
+    @warn "'#{ $media }' is not a valid media query. Available breakpoints: #{map-keys($breakpoints)}";
+  }
+}
+
+@mixin size($type, $width, $height: $width) {
+  @if $type == min {
+    min-width: $width;
+    @if $height != 0px {
+      min-height: $height;
+    }
+  } @else if $type == max {
+    max-width: $width;
+    @if $height != 0px {
+      max-height: $height;
+    }
+  } @else if $type == default {
+    width: $width;
+    @if $height != 0px {
+      height: $height;
+    }
+  }
+}
+
+@mixin flex($flex: on, $direction: null, $justify: null, $align: null, $wrap: null, $gap: null) {
+  @if $flex == on {
+    display: flex;
+  }
+
+  @if $direction != null {
+    flex-direction: $direction;
+  }
+
+  @if $justify != null {
+    justify-content: $justify;
+  }
+
+  @if $align != null {
+    align-items: $align;
+  }
+
+  @if $wrap != null {
+    flex-wrap: $wrap;
+  }
+
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+@mixin axis-indent($type, $axis, $value, $yvalue: null) {
+  @if $axis == x {
+    #{$type}-left: $value;
+    #{$type}-right: $value;
+  } @else if $axis == y {
+    #{$type}-top: $value;
+    #{$type}-bottom: $value;
+  } @else if $axis == xy {
+    #{$type}-left: $value;
+    #{$type}-right: $value;
+    @if $yvalue != null {
+      #{$type}-top: $yvalue;
+      #{$type}-bottom: $yvalue;
+    }
+  } @else {
+    @warn "'#{ $axis }' is not a valid axis.";
+  }
+}
+
+@mixin border-radius($top-left: null, $top-right: null, $bottom-right: null, $bottom-left: null) {
+  @if $top-left != null and $top-right != null and $bottom-right != null and $bottom-left != null {
+    border-radius: $top-left $top-right $bottom-right $bottom-left;
+  } @else if $top-left != null {
+    @if type-of($top-left) == number and unit($top-left) != "" {
+      border-radius: $top-left;
+    }
+  }
+}
+
+@mixin border($sides: null, $width: null, $style: null, $color: null, $radiuses...) {
+  @if $sides == all {
+    @if $width != null {
+      border-width: $width;
+    }
+    @if $style != null {
+      border-style: $style;
+    }
+    @if $color != null {
+      border-color: $color;
+    }
+  } @else {
+    @each $side in $sides {
+      @if $width != null {
+        border-#{$side}-width: $width;
+      }
+      @if $style != null {
+        border-#{$side}-style: $style;
+      }
+      @if $color != null {
+        border-#{$side}-color: $color;
+      }
+    }
+  }
+  @if length($radiuses) > 0 {
+    @include border-radius($radiuses...);
+  }
+}
+
+// Простые миксины
+
+// Сложные шаблоны
+
+// Простые шаблоны
