@@ -3,7 +3,8 @@
 $colors-map: (
   "white": #fefae0,
   "extra-white": #faedcd,
-  "light-green": #e9edc9,
+  "light-green": #ccd5ae,
+  "extra-green": #e9edc9,
   "green": #606c38,
   "dark-green": #283618,
   "orange": #dda15e,
@@ -34,9 +35,11 @@ $font-weights-map: (
 $text-list: (
   main-title "Noto Sans" semi-bold normal color("extra-white") 30px 64px,
   main-subtitle "Noto Sans" semi-bold normal color("extra-white") 16px 18px,
-  secondary-title "Noto Sans" bold normal color("green") 26px 42px,
+  secondary-title "Noto Sans" bold normal color("dark-green") 26px 42px,
   about-topic "Noto Sans" medium normal black 16px 26px,
   simple-text "Noto Sans" medium normal black 14px 20px,
+  card-title "Noto Sans" bold normal color("dark-green") 20px 26px,
+  card-price "Noto Sans" bold normal color("dark-orange") 20px 24px,
 );
 
 $link-list: (navbar "Noto Sans" medium normal color("dark-green") color("dark-orange") 14px 20px,);
@@ -253,7 +256,8 @@ $breakpoints: (
   background-color: color("extra-white");
   @include border(all, $style: solid, $color: color("green"));
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     color: color("dark-green");
     background-color: color("light-green");
     @include border(all, $color: color("dark-green"));
@@ -266,20 +270,62 @@ $breakpoints: (
   }
 }
 
-%button-white {
+@mixin button($type) {
   @extend %simple-transition;
   @extend %simple-scale;
-  @include border(all, $style: solid, $color: color("green"));
-  color: color("green");
-  background-color: color("extra-white");
   font: {
     family: "Noto Sans";
     weight: font-weight("medium");
   }
-  &:hover,
-  &:active {
-    background-color: color("green");
+
+  @if $type == "white" {
+    @include border(all, $style: solid, $color: color("green"));
+    color: color("green");
+    background-color: color("extra-white");
+
+    &:hover {
+      background-color: color("green");
+      color: color("white");
+      @include border(all, $color: color("dark-green"));
+    }
+
+    &:active {
+      background-color: color("extra-white");
+      color: color("green");
+      @include border(all, $color: color("green"));
+    }
+  } @else if $type == "green" {
+    @include border(all, $style: solid, $color: color("dark-green"));
     color: color("white");
-    @include border(all, $color: color("dark-green"));
+    background-color: color("green");
+
+    &:hover {
+      background-color: color("extra-white");
+      color: color("green");
+      @include border(all, $color: color("green"));
+    }
+
+    &:active {
+      background-color: color("green");
+      color: color("white");
+      @include border(all, $color: color("dark-green"));
+    }
+  } @else {
+    @error "Unknown button type: #{$type}. Use 'white' or 'green'.";
   }
+}
+
+%slider {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+
+%slides {
+  transition: transform 0.001s ease-in-out;
+}
+
+%slide {
+  scroll-snap-align: start;
+  position: relative;
 }

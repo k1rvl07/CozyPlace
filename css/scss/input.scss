@@ -16,6 +16,18 @@ html {
     @extend %secondary-title;
 }
 
+.slider {
+    @extend %slider;
+
+    &__slides {
+        @extend %slides;
+    }
+
+    &__slide {
+        @extend %slide;
+    }
+}
+
 .header {
     background-color: color("extra-white");
     &__logo {
@@ -103,10 +115,10 @@ html {
     background-image: url("../../../src/images/main_photo.png");
     background-repeat: no-repeat;
     background-position: center;
-    height: 242px;
+    @include size(default, null, 242px);
     @include respond-to("desktop") {
         background-image: url("../../../src/images/main_photo_desktop.png");
-        height: 700px;
+        @include size(default, null, 700px);
     }
     &__content {
         padding-top: 35px;
@@ -134,7 +146,7 @@ html {
         @extend %main-subtitle;
     }
     &__button {
-        @extend %button-white;
+        @include button("white");
         @include axis-indent(padding, xy, 18.5px, 12.5px);
         font-size: 14px;
         border-radius: 18px;
@@ -229,7 +241,7 @@ html {
         }
     }
     &__text-slider {
-        background-color: color("light-green");
+        background-color: color("extra-green");
         border-radius: 18px;
         @include respond-to("desktop") {
             display: none;
@@ -254,6 +266,92 @@ html {
         display: none;
         @include respond-to("desktop") {
             display: block;
+        }
+    }
+}
+
+.habitation {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__title {
+        margin-bottom: 20px;
+        @include respond-to("desktop") {
+            margin-bottom: 30px;
+        }
+    }
+    .card {
+        @include size(default, 300px, 477px);
+        @include respond-to("desktop") {
+            @include size(default, 305px, 630px);
+        }
+        &__main-info {
+            @include flex(on, $justify: space-between, $align: center);
+            @include axis-indent(padding, y, 10px);
+            @include respond-to("desktop") {
+                padding-top: 16px;
+                padding-bottom: 14px;
+            }
+        }
+        &__title {
+            @extend %card-title;
+        }
+        &__price {
+            @extend %card-price;
+        }
+        &__description {
+            @extend %simple-text;
+            padding-bottom: 10px;
+            @include respond-to("desktop") {
+                padding-bottom: 12.5px;
+            }
+        }
+        &__image {
+            @include size(default, 300px, 300px);
+            @include respond-to("desktop") {
+                @include size(default, 305px, 366px);
+            }
+        }
+        &__button {
+            @include button("green");
+            @include size(default, 300px, 44px);
+            border-radius: 18px;
+            border-width: 3px;
+            font-size: 16px;
+            @include respond-to("desktop") {
+                @include size(default, 305px, 53px);
+                border-radius: 20px;
+            }
+        }
+        &__break-mobile {
+            @include respond-to("desktop") {
+                display: none;
+            }
+        }
+        &__break-desktop {
+            display: none;
+            @include respond-to("desktop") {
+                display: block;
+            }
+        }
+    }
+    .slider {
+        @include size(default, 300px, 477px);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 632px);
+        }
+        &__slides {
+            @include flex(on, $justify: space-between, $align: center, $gap: 30px);
+            @include respond-to("desktop") {
+                @include flex($gap: 9px);
+            }
+        }
+        &__line {
+            display: none;
+            @include respond-to("desktop") {
+                display: block;
+            }
         }
     }
 }

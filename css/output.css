@@ -113,7 +113,7 @@ legend {
   font-weight: 700;
   font-style: normal;
   font-size: 26px;
-  color: #606c38;
+  color: #283618;
 }
 @media only screen and (min-width: 1280px) {
   .secondary-title {
@@ -134,7 +134,7 @@ legend {
   }
 }
 
-.about__text {
+.habitation .card__description, .about__text {
   font-family: "Noto Sans";
   font-weight: 500;
   font-style: normal;
@@ -142,8 +142,34 @@ legend {
   color: black;
 }
 @media only screen and (min-width: 1280px) {
-  .about__text {
+  .habitation .card__description, .about__text {
     font-size: 20px;
+  }
+}
+
+.habitation .card__title {
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: #283618;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card__title {
+    font-size: 26px;
+  }
+}
+
+.habitation .card__price {
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: #bc6c25;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card__price {
+    font-size: 24px;
   }
 }
 
@@ -173,17 +199,17 @@ legend {
   }
 }
 
-.main__button, .header__input, .header .menu__link, .header .menu__link-active {
+.habitation .card__button, .main__button, .header__input, .header .menu__link, .header .menu__link-active {
   transition: 0.3s;
 }
-.main__button:hover, .header__input:hover, .header .menu__link:hover, .header .menu__link-active:hover {
+.habitation .card__button:hover, .main__button:hover, .header__input:hover, .header .menu__link:hover, .header .menu__link-active:hover {
   transition: 0.3s;
 }
-.main__button:active, .header__input:active, .header .menu__link:active, .header .menu__link-active:active {
+.habitation .card__button:active, .main__button:active, .header__input:active, .header .menu__link:active, .header .menu__link-active:active {
   transition: 0.05s;
 }
 
-.main__button:active {
+.habitation .card__button:active, .main__button:active {
   transform: scale(0.9);
 }
 
@@ -195,30 +221,31 @@ legend {
   border-style: solid;
   border-color: #606c38;
 }
-.header__input:hover, .header__input:active {
+.header__input:hover, .header__input:active, .header__input:focus {
   color: #283618;
-  background-color: #e9edc9;
+  background-color: #ccd5ae;
   border-color: #283618;
 }
-.header__input:hover::placeholder, .header__input:active::placeholder {
+.header__input:hover::placeholder, .header__input:active::placeholder, .header__input:focus::placeholder {
   color: #283618;
 }
 .header__input::placeholder {
   color: #606c38;
 }
 
-.main__button {
-  border-style: solid;
-  border-color: #606c38;
-  color: #606c38;
-  background-color: #faedcd;
-  font-family: "Noto Sans";
-  font-weight: 500;
+.slider {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
 }
-.main__button:hover, .main__button:active {
-  background-color: #606c38;
-  color: #fefae0;
-  border-color: #283618;
+
+.slider__slides {
+  transition: transform 0.001s ease-in-out;
+}
+
+.slider__slide {
+  scroll-snap-align: start;
+  position: relative;
 }
 
 html {
@@ -380,12 +407,28 @@ html {
   }
 }
 .main__button {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  border-style: solid;
+  border-color: #606c38;
+  color: #606c38;
+  background-color: #faedcd;
   padding-left: 18.5px;
   padding-right: 18.5px;
   padding-top: 12.5px;
   padding-bottom: 12.5px;
   font-size: 14px;
   border-radius: 18px;
+}
+.main__button:hover {
+  background-color: #606c38;
+  color: #fefae0;
+  border-color: #283618;
+}
+.main__button:active {
+  background-color: #faedcd;
+  color: #606c38;
+  border-color: #606c38;
 }
 @media only screen and (min-width: 1280px) {
   .main__button {
@@ -533,6 +576,137 @@ html {
 }
 @media only screen and (min-width: 1280px) {
   .about__break-desktop {
+    display: block;
+  }
+}
+
+.habitation {
+  margin-top: 40px;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation {
+    margin-top: 90px;
+  }
+}
+.habitation__title {
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation__title {
+    margin-bottom: 30px;
+  }
+}
+.habitation .card {
+  width: 300px;
+  height: 477px;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card {
+    width: 305px;
+    height: 630px;
+  }
+}
+.habitation .card__main-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card__main-info {
+    padding-top: 16px;
+    padding-bottom: 14px;
+  }
+}
+.habitation .card__description {
+  padding-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card__description {
+    padding-bottom: 12.5px;
+  }
+}
+.habitation .card__image {
+  width: 300px;
+  height: 300px;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card__image {
+    width: 305px;
+    height: 366px;
+  }
+}
+.habitation .card__button {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  border-style: solid;
+  border-color: #283618;
+  color: #fefae0;
+  background-color: #606c38;
+  width: 300px;
+  height: 44px;
+  border-radius: 18px;
+  border-width: 3px;
+  font-size: 16px;
+}
+.habitation .card__button:hover {
+  background-color: #faedcd;
+  color: #606c38;
+  border-color: #606c38;
+}
+.habitation .card__button:active {
+  background-color: #606c38;
+  color: #fefae0;
+  border-color: #283618;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card__button {
+    width: 305px;
+    height: 53px;
+    border-radius: 20px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card__break-mobile {
+    display: none;
+  }
+}
+.habitation .card__break-desktop {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .card__break-desktop {
+    display: block;
+  }
+}
+.habitation .slider {
+  width: 300px;
+  height: 477px;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .slider {
+    width: 1280px;
+    height: 632px;
+  }
+}
+.habitation .slider__slides {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .slider__slides {
+    display: flex;
+    gap: 9px;
+  }
+}
+.habitation .slider__line {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .slider__line {
     display: block;
   }
 }
