@@ -38,11 +38,14 @@ $text-list: (
   secondary-title "Noto Sans" bold normal color("dark-green") 26px 42px,
   about-topic "Noto Sans" medium normal black 16px 26px,
   simple-text "Noto Sans" medium normal black 14px 20px,
-  card-title "Noto Sans" bold normal color("dark-green") 20px 26px,
-  card-price "Noto Sans" bold normal color("dark-orange") 20px 24px,
+  habitation-food-card-title "Noto Sans" bold normal color("dark-green") 20px 26px,
+  habitation-card-price "Noto Sans" bold normal color("dark-orange") 20px 24px
 );
 
-$link-list: (navbar "Noto Sans" medium normal color("dark-green") color("dark-orange") 14px 20px,);
+$link-list: (
+  navbar "Noto Sans" medium normal color("dark-green") color("dark-orange") 14px 20px,
+  entertainment-link "Noto Sans" semi-bold normal color("dark-green") color("dark-orange") 14px 20px
+);
 
 // Сложные миксины
 
@@ -318,6 +321,9 @@ $breakpoints: (
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
+  @include respond-to("desktop") {
+    overflow-x: hidden;
+  }
 }
 
 %slides {

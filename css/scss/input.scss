@@ -14,6 +14,10 @@ html {
 
 .secondary-title {
     @extend %secondary-title;
+    margin-bottom: 20px;
+    @include respond-to("desktop") {
+        margin-bottom: 30px;
+    }
 }
 
 .slider {
@@ -25,6 +29,20 @@ html {
 
     &__slide {
         @extend %slide;
+    }
+}
+
+.break-mobile {
+    display: block;
+    @include respond-to("desktop") {
+        display: none;
+    }
+}
+
+.break-desktop {
+    display: none;
+    @include respond-to("desktop") {
+        display: block;
     }
 }
 
@@ -198,12 +216,6 @@ html {
     @include respond-to("desktop") {
         margin-top: 90px;
     }
-    &__title {
-        margin-bottom: 20px;
-        @include respond-to("desktop") {
-            margin-bottom: 30px;
-        }
-    }
     &__topic {
         @extend %about-topic;
     }
@@ -257,29 +269,12 @@ html {
             @include flex(on, row-reverse, space-between, center);
         }
     }
-    &__break-mobile {
-        @include respond-to("desktop") {
-            display: none;
-        }
-    }
-    &__break-desktop {
-        display: none;
-        @include respond-to("desktop") {
-            display: block;
-        }
-    }
 }
 
 .habitation {
     margin-top: 40px;
     @include respond-to("desktop") {
         margin-top: 90px;
-    }
-    &__title {
-        margin-bottom: 20px;
-        @include respond-to("desktop") {
-            margin-bottom: 30px;
-        }
     }
     .card {
         @include size(default, 300px, 477px);
@@ -295,10 +290,10 @@ html {
             }
         }
         &__title {
-            @extend %card-title;
+            @extend %habitation-food-card-title;
         }
         &__price {
-            @extend %card-price;
+            @extend %habitation-card-price;
         }
         &__description {
             @extend %simple-text;
@@ -322,17 +317,6 @@ html {
             @include respond-to("desktop") {
                 @include size(default, 305px, 53px);
                 border-radius: 20px;
-            }
-        }
-        &__break-mobile {
-            @include respond-to("desktop") {
-                display: none;
-            }
-        }
-        &__break-desktop {
-            display: none;
-            @include respond-to("desktop") {
-                display: block;
             }
         }
     }
@@ -363,12 +347,6 @@ html {
     @include respond-to("desktop") {
         margin-top: 90px;
         @include axis-indent(padding, y, 40px);
-    }
-    &__title {
-        margin-bottom: 20px;
-        @include respond-to("desktop") {
-            margin-bottom: 30px;
-        }
     }
     &__collage {
         margin-bottom: 10px;
@@ -409,6 +387,7 @@ html {
         @include flex(on, column, center, center);
         @include respond-to("desktop") {
             @include size(default, 1280px, 423px);
+            border-width: 6px;
         }
         &-content {
             @include size(default, 260px, 745px);
@@ -445,6 +424,80 @@ html {
             @include size(default, 193px, 57px);
             @include respond-to("desktop") {
                 @include size(default, 810px, 27px);
+            }
+        }
+    }
+}
+
+.entertainment {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    .card {
+        background-color: color("extra-green");
+        @include size(default, 300px, 362px);
+        @include flex(on, $justify: center, $align: center);
+        border-radius: 20px;
+        @include respond-to("desktop") {
+            @include size(default, 630px, 240px);
+        }
+        &__title {
+            @extend %habitation-food-card-title;
+        }
+        &__description {
+            @extend %simple-text;
+        }
+        &__main-info {
+            @include flex(on, $justify: space-between, $align: center);
+            @include axis-indent(padding, y, 10px);
+            @include respond-to("desktop") {
+                padding-top: 0px;
+                padding-bottom: 12px;
+            }
+        }
+        &__content {
+            @include size(default, 260px, 322px);
+            @include respond-to("desktop") {
+                @include size(default, 590px, 200px);
+                @include flex(on, $justify: space-between, $align: center);
+            }
+        }
+        &__link {
+            @extend %entertainment-link;
+            @include flex(on, $gap: 4px);
+            @include respond-to("desktop") {
+                gap: 8px;
+            }
+        }
+        &__text {
+            @include respond-to("desktop") {
+                @include size(default, 370px, 182px);
+            }
+        }
+        &__image {
+            @include respond-to("desktop") {
+                @include size(default, 200px);
+                border-radius: 50%;
+            }
+        }
+        &__arrow {
+            @include size(default, 8px, 10px);
+            margin-top: 6px;
+            @include respond-to("desktop") {
+                @include size(default, 10px, 16px);
+            }
+        }
+    }
+    .slider {
+        @include size(default, 300px, 362px);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 500px);
+        }
+        &__slides {
+            @include flex(on, $align: center, $gap: 30px);
+            @include respond-to("desktop") {
+                @include flex($wrap: wrap, $gap: 20px);
             }
         }
     }
