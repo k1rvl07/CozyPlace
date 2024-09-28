@@ -619,36 +619,28 @@ html {
     @include respond-to("desktop") {
         margin-top: 90px;
     }
+    &__collage {
+        @include flex(on, $wrap: wrap, $gap: 25px);
+    }
     &__image {
         border-radius: 18px;
-        @include size(default, 100%);
-        @include respond-to("desktop") {
-            @include size(default, 100%);
-        }
-    }
-    .slider {
+        transition: opacity 0.5s ease-in-out;
         @include size(default, 300px, 280px);
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            display: none;
+        }
         @include respond-to("desktop") {
-            @include size(default, 1280px, 675px);
-        }
-        &__slides {
-            @include flex(on, $gap: 30px);
-            @include size(default, fit-content);
-            @include respond-to("desktop") {
-                @include flex($justify: space-between, $wrap: wrap, $gap: 25px);
+            display: block !important;
+            @include size(default, 100%);
+            &:nth-child(2),
+            &:nth-child(3) {
+                @include size(default, 845px, 325px);
             }
-        }
-        &__slide {
-            @include size(default, 300px, 280px);
-            @include respond-to("desktop") {
-                &:nth-child(2),
-                &:nth-child(3) {
-                    @include size(default, 845px, 325px);
-                }
-                &:nth-child(1),
-                &:nth-child(4) {
-                    @include size(default, 410px, 325px);
-                }
+            &:nth-child(1),
+            &:nth-child(4) {
+                @include size(default, 410px, 325px);
             }
         }
     }

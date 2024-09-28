@@ -27,44 +27,75 @@ setInterval(changeText, 10000);
 
 changeText()
 
-// Изменение картинки в блоке "Питание"
+// Изменение картинки в блоке "Питание" и "Фотогалерея"
 
 document.addEventListener('DOMContentLoaded', function () {
-    const image = document.querySelector('.food__image');
-    let currentIndex = 1;
-    let intervalId;
+    const foodImage = document.querySelector('.food__image');
+    const photosImage = document.querySelector('.photos__image');
 
-    function changeImage() {
-        currentIndex = (currentIndex % 3) + 1;
-        const newSrc = `./images/food_collage_${currentIndex}.png`;
+    let foodCurrentIndex = 1;
+    let photosCurrentIndex = 1;
+    let foodIntervalId, photosIntervalId;
 
-        image.style.opacity = 0;
+    function changeFoodImage() {
+        foodCurrentIndex = (foodCurrentIndex % 3) + 1;
+        const newSrc = `./images/food_collage_${foodCurrentIndex}.png`;
+
+        foodImage.style.opacity = 0;
         setTimeout(() => {
-            image.src = newSrc;
-            image.style.opacity = 1;
+            foodImage.src = newSrc;
+            foodImage.style.opacity = 1;
         }, 500);
     }
 
-    function startImageChange() {
-        if (!intervalId) {
-            intervalId = setInterval(changeImage, 8000);
+    function changePhotosImage() {
+        photosCurrentIndex = (photosCurrentIndex % 4) + 1;
+        const newSrc = `./images/photos_collage_${photosCurrentIndex}.png`;
+
+        photosImage.style.opacity = 0;
+        setTimeout(() => {
+            photosImage.src = newSrc;
+            photosImage.style.opacity = 1;
+        }, 500);
+    }
+
+    function startFoodImageChange() {
+        if (!foodIntervalId) {
+            foodIntervalId = setInterval(changeFoodImage, 8000);
         }
     }
 
-    function stopImageChange() {
-        if (intervalId) {
-            clearInterval(intervalId);
-            intervalId = null;
-            currentIndex = 1;
-            image.src = `./images/food_collage_${currentIndex}.png`;
+    function stopFoodImageChange() {
+        if (foodIntervalId) {
+            clearInterval(foodIntervalId);
+            foodIntervalId = null;
+            foodCurrentIndex = 1;
+            foodImage.src = `./images/food_collage_${foodCurrentIndex}.png`;
+        }
+    }
+
+    function startPhotosImageChange() {
+        if (!photosIntervalId) {
+            photosIntervalId = setInterval(changePhotosImage, 6000);
+        }
+    }
+
+    function stopPhotosImageChange() {
+        if (photosIntervalId) {
+            clearInterval(photosIntervalId);
+            photosIntervalId = null;
+            photosCurrentIndex = 1;
+            photosImage.src = `./images/photos_collage_${photosCurrentIndex}.png`;
         }
     }
 
     function checkScreenWidth() {
         if (window.innerWidth < 1280) {
-            startImageChange();
+            startFoodImageChange();
+            startPhotosImageChange();
         } else {
-            stopImageChange();
+            stopFoodImageChange();
+            stopPhotosImageChange();
         }
     }
 
