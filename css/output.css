@@ -173,6 +173,19 @@ legend {
   }
 }
 
+.reviews .card__name {
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  color: #283618;
+}
+@media only screen and (min-width: 1280px) {
+  .reviews .card__name {
+    font-size: 20px;
+  }
+}
+
 .header .menu__link, .header .menu__link-active {
   font-family: "Noto Sans";
   font-weight: 500;
@@ -1022,5 +1035,95 @@ html {
     width: 240px;
     height: 60px;
     font-size: 18px;
+  }
+}
+
+.reviews {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+@media only screen and (min-width: 1280px) {
+  .reviews {
+    margin-top: 90px;
+  }
+}
+.reviews .card__reviewer {
+  background-color: #e9edc9;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 18px;
+}
+.reviews .card__reviewer-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.reviews .card__text {
+  background-color: #e9edc9;
+  margin-top: 10px;
+  width: 300px;
+  height: 202px;
+  border-radius: 18px;
+}
+@media only screen and (min-width: 1280px) {
+  .reviews .card__text {
+    width: 629px;
+    height: 202px;
+    margin-top: 20px;
+  }
+}
+.reviews .card__description {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+@media only screen and (min-width: 1280px) {
+  .reviews .card__description {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+.reviews .card__image {
+  width: 40px;
+  height: 40px;
+}
+@media only screen and (min-width: 1280px) {
+  .reviews .card__image {
+    width: 50px;
+    height: 50px;
+  }
+}
+.reviews .slider {
+  width: 300px;
+  height: 272px;
+}
+@media only screen and (min-width: 1280px) {
+  .reviews .slider {
+    width: 1280px;
+    height: 614px;
+  }
+}
+.reviews .slider__slides {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+@media only screen and (min-width: 1280px) {
+  .reviews .slider__slides {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .reviews .slider__slide:nth-child(3), .reviews .slider__slide:nth-child(4) {
+    margin-top: 8px;
   }
 }
