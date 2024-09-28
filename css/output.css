@@ -134,7 +134,7 @@ legend {
   }
 }
 
-.habitation .card__description, .about__text {
+.food__season-text, .food__description, .habitation .card__description, .about__text {
   font-family: "Noto Sans";
   font-weight: 500;
   font-style: normal;
@@ -142,7 +142,7 @@ legend {
   color: black;
 }
 @media only screen and (min-width: 1280px) {
-  .habitation .card__description, .about__text {
+  .food__season-text, .food__description, .habitation .card__description, .about__text {
     font-size: 20px;
   }
 }
@@ -708,5 +708,145 @@ html {
 @media only screen and (min-width: 1280px) {
   .habitation .slider__line {
     display: block;
+  }
+}
+
+.food {
+  background-color: #e9edc9;
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .food {
+    margin-top: 90px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+.food__title {
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .food__title {
+    margin-bottom: 30px;
+  }
+}
+.food__collage {
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .food__collage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+}
+.food__image {
+  width: 300px;
+  height: 200px;
+  transition: opacity 0.5s ease-in-out;
+}
+.food__image:nth-child(2), .food__image:nth-child(3) {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .food__image {
+    width: 410px;
+    height: 325px;
+  }
+  .food__image:nth-child(2), .food__image:nth-child(3) {
+    display: block;
+  }
+}
+.food__description {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .food__description {
+    padding-top: 0px;
+    padding-bottom: 15px;
+  }
+}
+.food__description-bold {
+  font-weight: 700;
+}
+.food__menu {
+  width: 300px;
+  height: 785px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #606c38;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 1280px) {
+  .food__menu {
+    width: 1280px;
+    height: 423px;
+  }
+}
+.food__menu-content {
+  width: 260px;
+  height: 745px;
+}
+@media only screen and (min-width: 1280px) {
+  .food__menu-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 1210px;
+    height: 352px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .food__menu-main-info {
+    width: 878px;
+    height: 349px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .food__menu-image {
+    width: 292px;
+    height: 353px;
+  }
+}
+.food__seasons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .food__seasons {
+    gap: 15px;
+  }
+}
+.food__season {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 260px;
+}
+@media only screen and (min-width: 1280px) {
+  .food__season {
+    width: 878px;
+    height: 52px;
+  }
+}
+.food__season-text {
+  width: 193px;
+  height: 57px;
+}
+@media only screen and (min-width: 1280px) {
+  .food__season-text {
+    width: 810px;
+    height: 27px;
   }
 }

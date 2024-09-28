@@ -355,3 +355,97 @@ html {
         }
     }
 }
+
+.food {
+    background-color: color("extra-green");
+    margin-top: 40px;
+    @include axis-indent(padding, y, 20px);
+    @include respond-to("desktop") {
+        margin-top: 90px;
+        @include axis-indent(padding, y, 40px);
+    }
+    &__title {
+        margin-bottom: 20px;
+        @include respond-to("desktop") {
+            margin-bottom: 30px;
+        }
+    }
+    &__collage {
+        margin-bottom: 10px;
+        @include respond-to("desktop") {
+            @include flex(on, $justify: space-between, $align: center);
+            margin-bottom: 30px;
+        }
+    }
+    &__image {
+        @include size(default, 300px, 200px);
+        transition: opacity 0.5s ease-in-out;
+        &:nth-child(2),
+        &:nth-child(3) {
+            display: none;
+        }
+        @include respond-to("desktop") {
+            @include size(default, 410px, 325px);
+            &:nth-child(2),
+            &:nth-child(3) {
+                display: block;
+            }
+        }
+    }
+    &__description {
+        @extend %simple-text;
+        @include axis-indent(padding, y, 10px);
+        @include respond-to("desktop") {
+            padding-top: 0px;
+            padding-bottom: 15px;
+        }
+        &-bold {
+            font-weight: font-weight("bold");
+        }
+    }
+    &__menu {
+        @include size(default, 300px, 785px);
+        @include border(all, 4px, solid, color("green"), 20px);
+        @include flex(on, column, center, center);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 423px);
+        }
+        &-content {
+            @include size(default, 260px, 745px);
+            @include respond-to("desktop") {
+                @include flex(on, row, $justify: space-between, $align: center);
+                @include size(default, 1210px, 352px);
+            }
+        }
+        &-main-info {
+            @include respond-to("desktop") {
+                @include size(default, 878px, 349px);
+            }
+        }
+        &-image {
+            @include respond-to("desktop") {
+                @include size(default, 292px, 353px);
+            }
+        }
+    }
+    &__seasons {
+        @include flex(on, column, $align: center, $gap: 10px);
+        @include respond-to("desktop") {
+            gap: 15px;
+        }
+    }
+    &__season {
+        @include flex(on, $justify: space-between, $align: center);
+        @include size(default, 260px, null);
+        @include respond-to("desktop") {
+            @include size(default, 878px, 52px);
+        }
+        &-text {
+            @extend %simple-text;
+            @include size(default, 193px, 57px);
+            @include respond-to("desktop") {
+                @include size(default, 810px, 27px);
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
-// Массив с текстами
+// Изменение текста в блоке "О глэмпинге"
+
 const texts = [
     "Никто здесь не торопится. <br> Мы наслаждаемся рассветами, наблюдаем за закатами, ценим тишину и делимся приятными моментами с близкими",
     "Насладитесь уникальным отдыхом <br> в наших удобных домиках. Ортопедические матрасы и уютные веранды создадут атмосферу комфорта и уединения на природе",
@@ -25,3 +26,49 @@ function changeText() {
 setInterval(changeText, 10000);
 
 changeText()
+
+// Изменение картинки в блоке "Питание"
+
+document.addEventListener('DOMContentLoaded', function () {
+    const image = document.querySelector('.food__image');
+    let currentIndex = 1;
+    let intervalId;
+
+    function changeImage() {
+        currentIndex = (currentIndex % 3) + 1;
+        const newSrc = `./images/food_collage_${currentIndex}.png`;
+
+        image.style.opacity = 0;
+        setTimeout(() => {
+            image.src = newSrc;
+            image.style.opacity = 1;
+        }, 500);
+    }
+
+    function startImageChange() {
+        if (!intervalId) {
+            intervalId = setInterval(changeImage, 8000);
+        }
+    }
+
+    function stopImageChange() {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+            currentIndex = 1;
+            image.src = `./images/food_collage_${currentIndex}.png`;
+        }
+    }
+
+    function checkScreenWidth() {
+        if (window.innerWidth < 1280) {
+            startImageChange();
+        } else {
+            stopImageChange();
+        }
+    }
+
+    checkScreenWidth();
+
+    window.addEventListener('resize', checkScreenWidth);
+});
