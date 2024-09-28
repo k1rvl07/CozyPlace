@@ -613,3 +613,43 @@ html {
         }
     }
 }
+
+.photos {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__image {
+        border-radius: 18px;
+        @include size(default, 100%);
+        @include respond-to("desktop") {
+            @include size(default, 100%);
+        }
+    }
+    .slider {
+        @include size(default, 300px, 280px);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 675px);
+        }
+        &__slides {
+            @include flex(on, $gap: 30px);
+            @include size(default, fit-content);
+            @include respond-to("desktop") {
+                @include flex($justify: space-between, $wrap: wrap, $gap: 25px);
+            }
+        }
+        &__slide {
+            @include size(default, 300px, 280px);
+            @include respond-to("desktop") {
+                &:nth-child(2),
+                &:nth-child(3) {
+                    @include size(default, 845px, 325px);
+                }
+                &:nth-child(1),
+                &:nth-child(4) {
+                    @include size(default, 410px, 325px);
+                }
+            }
+        }
+    }
+}
