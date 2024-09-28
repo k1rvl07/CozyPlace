@@ -145,12 +145,12 @@ html {
 }
 
 .main {
-    background-image: url("../../../src/images/main_photo.png");
+    background-image: url("../images/main_photo.png");
     background-repeat: no-repeat;
     background-position: center;
     @include size(default, null, 242px);
     @include respond-to("desktop") {
-        background-image: url("../../../src/images/main_photo_desktop.png");
+        background-image: url("../images/main_photo_desktop.png");
         @include size(default, null, 700px);
     }
     &__content {
