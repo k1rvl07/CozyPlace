@@ -134,7 +134,7 @@ legend {
   }
 }
 
-.entertainment .card__description, .food__season-text, .food__description, .habitation .card__description, .about__text {
+.simple-text {
   font-family: "Noto Sans";
   font-weight: 500;
   font-style: normal;
@@ -142,7 +142,7 @@ legend {
   color: black;
 }
 @media only screen and (min-width: 1280px) {
-  .entertainment .card__description, .food__season-text, .food__description, .habitation .card__description, .about__text {
+  .simple-text {
     font-size: 20px;
   }
 }
@@ -215,21 +215,21 @@ legend {
   }
 }
 
-.habitation .card__button, .main__button, .header__input, .header .menu__link, .header .menu__link-active, .entertainment .card__link {
+.green-button, .white-button, .input, .header .menu__link, .header .menu__link-active, .entertainment .card__link {
   transition: 0.3s;
 }
-.habitation .card__button:hover, .main__button:hover, .header__input:hover, .header .menu__link:hover, .header .menu__link-active:hover, .entertainment .card__link:hover {
+.green-button:hover, .white-button:hover, .input:hover, .header .menu__link:hover, .header .menu__link-active:hover, .entertainment .card__link:hover {
   transition: 0.3s;
 }
-.habitation .card__button:active, .main__button:active, .header__input:active, .header .menu__link:active, .header .menu__link-active:active, .entertainment .card__link:active {
+.green-button:active, .white-button:active, .input:active, .header .menu__link:active, .header .menu__link-active:active, .entertainment .card__link:active {
   transition: 0.05s;
 }
 
-.habitation .card__button:active, .main__button:active {
+.green-button:active, .white-button:active {
   transform: scale(0.9);
 }
 
-.header__input {
+.input {
   color: #606c38;
   font-family: "Noto Sans";
   font-weight: 500;
@@ -237,15 +237,15 @@ legend {
   border-style: solid;
   border-color: #606c38;
 }
-.header__input:hover, .header__input:active, .header__input:focus {
+.input:hover, .input:active, .input:focus {
   color: #283618;
   background-color: #ccd5ae;
   border-color: #283618;
 }
-.header__input:hover::placeholder, .header__input:active::placeholder, .header__input:focus::placeholder {
+.input:hover::placeholder, .input:active::placeholder, .input:focus::placeholder {
   color: #283618;
 }
-.header__input::placeholder {
+.input::placeholder {
   color: #606c38;
 }
 
@@ -298,6 +298,44 @@ html {
   .break-desktop {
     display: block;
   }
+}
+
+.white-button {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  border-style: solid;
+  border-color: #606c38;
+  color: #606c38;
+  background-color: #faedcd;
+}
+.white-button:hover {
+  background-color: #606c38;
+  color: #fefae0;
+  border-color: #283618;
+}
+.white-button:active {
+  background-color: #faedcd;
+  color: #606c38;
+  border-color: #606c38;
+}
+
+.green-button {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  border-style: solid;
+  border-color: #283618;
+  color: #fefae0;
+  background-color: #606c38;
+}
+.green-button:hover {
+  background-color: #faedcd;
+  color: #606c38;
+  border-color: #606c38;
+}
+.green-button:active {
+  background-color: #606c38;
+  color: #fefae0;
+  border-color: #283618;
 }
 
 .header {
@@ -455,28 +493,12 @@ html {
   }
 }
 .main__button {
-  font-family: "Noto Sans";
-  font-weight: 500;
-  border-style: solid;
-  border-color: #606c38;
-  color: #606c38;
-  background-color: #faedcd;
   padding-left: 18.5px;
   padding-right: 18.5px;
   padding-top: 12.5px;
   padding-bottom: 12.5px;
   font-size: 14px;
   border-radius: 18px;
-}
-.main__button:hover {
-  background-color: #606c38;
-  color: #fefae0;
-  border-color: #283618;
-}
-.main__button:active {
-  background-color: #faedcd;
-  color: #606c38;
-  border-color: #606c38;
 }
 @media only screen and (min-width: 1280px) {
   .main__button {
@@ -657,27 +679,11 @@ html {
   }
 }
 .habitation .card__button {
-  font-family: "Noto Sans";
-  font-weight: 500;
-  border-style: solid;
-  border-color: #283618;
-  color: #fefae0;
-  background-color: #606c38;
   width: 300px;
   height: 44px;
   border-radius: 18px;
   border-width: 3px;
-  font-size: 16px;
-}
-.habitation .card__button:hover {
-  background-color: #faedcd;
-  color: #606c38;
-  border-color: #606c38;
-}
-.habitation .card__button:active {
-  background-color: #606c38;
-  color: #fefae0;
-  border-color: #283618;
+  font-size: 18px;
 }
 @media only screen and (min-width: 1280px) {
   .habitation .card__button {
@@ -952,5 +958,69 @@ html {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+  }
+}
+
+.news {
+  margin-top: 40px;
+  background-color: #e9edc9;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .news {
+    margin-top: 90px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+.news__description {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .news__description {
+    margin-bottom: 30px;
+  }
+}
+.news__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .news__form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.news__input {
+  width: 300px;
+  height: 44px;
+  border-radius: 18px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 16px;
+}
+@media only screen and (min-width: 1280px) {
+  .news__input {
+    width: 470px;
+    height: 60px;
+    font-size: 18px;
+  }
+}
+.news__button {
+  width: 300px;
+  height: 44px;
+  border-radius: 18px;
+  font-size: 16px;
+}
+@media only screen and (min-width: 1280px) {
+  .news__button {
+    width: 240px;
+    height: 60px;
+    font-size: 18px;
   }
 }

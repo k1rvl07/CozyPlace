@@ -20,6 +20,10 @@ html {
     }
 }
 
+.simple-text {
+    @extend %simple-text;
+}
+
 .slider {
     @extend %slider;
 
@@ -44,6 +48,18 @@ html {
     @include respond-to("desktop") {
         display: block;
     }
+}
+
+.white-button {
+    @include button("white");
+}
+
+.green-button {
+    @include button("green");
+}
+
+.input {
+    @extend %input;
 }
 
 .header {
@@ -93,7 +109,6 @@ html {
         margin-left: auto;
     }
     &__input {
-        @extend %input;
         padding-left: 10px;
         padding-right: 26px;
         @include axis-indent(padding, y, 6px);
@@ -164,7 +179,6 @@ html {
         @extend %main-subtitle;
     }
     &__button {
-        @include button("white");
         @include axis-indent(padding, xy, 18.5px, 12.5px);
         font-size: 14px;
         border-radius: 18px;
@@ -237,7 +251,6 @@ html {
         }
     }
     &__text {
-        @extend %simple-text;
         transition: opacity 1s ease-in-out;
         @include axis-indent(padding, xy, 20px, 20px);
         @include respond-to("desktop") {
@@ -296,7 +309,6 @@ html {
             @extend %habitation-card-price;
         }
         &__description {
-            @extend %simple-text;
             padding-bottom: 10px;
             @include respond-to("desktop") {
                 padding-bottom: 12.5px;
@@ -309,11 +321,10 @@ html {
             }
         }
         &__button {
-            @include button("green");
             @include size(default, 300px, 44px);
             border-radius: 18px;
             border-width: 3px;
-            font-size: 16px;
+            font-size: 18px;
             @include respond-to("desktop") {
                 @include size(default, 305px, 53px);
                 border-radius: 20px;
@@ -371,7 +382,6 @@ html {
         }
     }
     &__description {
-        @extend %simple-text;
         @include axis-indent(padding, y, 10px);
         @include respond-to("desktop") {
             padding-top: 0px;
@@ -420,7 +430,6 @@ html {
             @include size(default, 878px, 52px);
         }
         &-text {
-            @extend %simple-text;
             @include size(default, 193px, 57px);
             @include respond-to("desktop") {
                 @include size(default, 810px, 27px);
@@ -444,9 +453,6 @@ html {
         }
         &__title {
             @extend %habitation-food-card-title;
-        }
-        &__description {
-            @extend %simple-text;
         }
         &__main-info {
             @include flex(on, $justify: space-between, $align: center);
@@ -499,6 +505,47 @@ html {
             @include respond-to("desktop") {
                 @include flex($wrap: wrap, $gap: 20px);
             }
+        }
+    }
+}
+
+.news {
+    margin-top: 40px;
+    background-color: color("extra-green");
+    @include axis-indent(padding, y, 20px);
+    @include respond-to("desktop") {
+        margin-top: 90px;
+        @include axis-indent(padding, y, 40px);
+    }
+    &__description {
+        @include axis-indent(margin, y, 20px);
+        @include respond-to("desktop") {
+            margin-bottom: 30px;
+        }
+    }
+    &__form {
+        @include flex(on, column, $align: center, $gap: 10px);
+        @include respond-to("desktop") {
+            @include flex(on, row, $justify: space-between);
+        }
+    }
+    &__input {
+        @include size(default, 300px, 44px);
+        border-radius: 18px;
+        @include axis-indent(padding, x, 30px);
+        font-size: 16px;
+        @include respond-to("desktop") {
+            @include size(default, 470px, 60px);
+            font-size: 18px;
+        }
+    }
+    &__button {
+        @include size(default, 300px, 44px);
+        border-radius: 18px;
+        font-size: 16px;
+        @include respond-to("desktop") {
+            @include size(default, 240px, 60px);
+            font-size: 18px;
         }
     }
 }

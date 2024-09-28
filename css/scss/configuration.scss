@@ -166,6 +166,51 @@ $breakpoints: (
   }
 }
 
+@mixin button($type) {
+  @extend %simple-transition;
+  @extend %simple-scale;
+  font: {
+    family: "Noto Sans";
+    weight: font-weight("medium");
+  }
+
+  @if $type == "white" {
+    @include border(all, $style: solid, $color: color("green"));
+    color: color("green");
+    background-color: color("extra-white");
+
+    &:hover {
+      background-color: color("green");
+      color: color("white");
+      @include border(all, $color: color("dark-green"));
+    }
+
+    &:active {
+      background-color: color("extra-white");
+      color: color("green");
+      @include border(all, $color: color("green"));
+    }
+  } @else if $type == "green" {
+    @include border(all, $style: solid, $color: color("dark-green"));
+    color: color("white");
+    background-color: color("green");
+
+    &:hover {
+      background-color: color("extra-white");
+      color: color("green");
+      @include border(all, $color: color("green"));
+    }
+
+    &:active {
+      background-color: color("green");
+      color: color("white");
+      @include border(all, $color: color("dark-green"));
+    }
+  } @else {
+    @error "Unknown button type: #{$type}. Use 'white' or 'green'.";
+  }
+}
+
 // Простые миксины
 
 // Сложные шаблоны
@@ -269,51 +314,6 @@ $breakpoints: (
   }
   &::placeholder {
     color: color("green");
-  }
-}
-
-@mixin button($type) {
-  @extend %simple-transition;
-  @extend %simple-scale;
-  font: {
-    family: "Noto Sans";
-    weight: font-weight("medium");
-  }
-
-  @if $type == "white" {
-    @include border(all, $style: solid, $color: color("green"));
-    color: color("green");
-    background-color: color("extra-white");
-
-    &:hover {
-      background-color: color("green");
-      color: color("white");
-      @include border(all, $color: color("dark-green"));
-    }
-
-    &:active {
-      background-color: color("extra-white");
-      color: color("green");
-      @include border(all, $color: color("green"));
-    }
-  } @else if $type == "green" {
-    @include border(all, $style: solid, $color: color("dark-green"));
-    color: color("white");
-    background-color: color("green");
-
-    &:hover {
-      background-color: color("extra-white");
-      color: color("green");
-      @include border(all, $color: color("green"));
-    }
-
-    &:active {
-      background-color: color("green");
-      color: color("white");
-      @include border(all, $color: color("dark-green"));
-    }
-  } @else {
-    @error "Unknown button type: #{$type}. Use 'white' or 'green'.";
   }
 }
 
