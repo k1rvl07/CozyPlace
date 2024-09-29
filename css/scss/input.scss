@@ -62,6 +62,10 @@ html {
     @extend %input;
 }
 
+.navbar-link {
+    @extend %navbar;
+}
+
 .header {
     background-color: color("extra-white");
     &__logo {
@@ -79,12 +83,10 @@ html {
                 margin-left: 80px;
             }
         }
-        &__link,
-        &__link-active {
-            @extend %navbar;
-        }
-        &__link-active {
-            color: color("dark-orange");
+        &__item {
+            &:first-child .menu__link {
+                color: color("dark-orange");
+            }
         }
     }
     &__bar {
@@ -761,3 +763,45 @@ html {
     }
 }
 
+.footer {
+    margin-top: 40px;
+    background-color: color("extra-white");
+    @include axis-indent(padding, y, 5px);
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__content {
+        @include flex(on, $align: center, $justify: space-between);
+        @include respond-to("desktop") {
+            @include flex(on, $justify: flex-start);
+        }
+    }
+    &__logo {
+        @include size(default, 80px, 52px);
+        @include respond-to("desktop") {
+            @include size(default, 125px, 80px);
+        }
+    }
+    &__social {
+        @include flex(on, $gap: 20px, $align: center);
+        @include respond-to("desktop") {
+            gap: 40px;
+            margin-left: auto;
+        }
+        &-image {
+            @include size(default, 50px);
+        }
+    }
+    .menu {
+        display: none;
+        @include respond-to("desktop") {
+            @include flex(on, $gap: 70px, $align: center);
+            margin-left: 80px;
+        }
+        &__item {
+            &:first-child .menu__link {
+                color: color("dark-orange");
+            }
+        }
+    }
+}

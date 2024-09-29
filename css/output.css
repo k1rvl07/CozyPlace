@@ -199,18 +199,18 @@ legend {
   }
 }
 
-.header .menu__link, .header .menu__link-active {
+.navbar-link {
   font-family: "Noto Sans";
   font-weight: 500;
   font-style: normal;
   color: #283618;
   font-size: 14px;
 }
-.header .menu__link:hover, .header .menu__link-active:hover, .header .menu__link:active, .header .menu__link-active:active {
+.navbar-link:hover, .navbar-link:active {
   color: #bc6c25;
 }
 @media only screen and (min-width: 1280px) {
-  .header .menu__link, .header .menu__link-active {
+  .navbar-link {
     font-size: 20px;
   }
 }
@@ -241,13 +241,13 @@ legend {
   }
 }
 
-.green-button, .white-button, .input, .header .menu__link, .header .menu__link-active, .entertainment .card__link {
+.green-button, .white-button, .input, .navbar-link, .entertainment .card__link {
   transition: 0.3s;
 }
-.green-button:hover, .white-button:hover, .input:hover, .header .menu__link:hover, .header .menu__link-active:hover, .entertainment .card__link:hover {
+.green-button:hover, .white-button:hover, .input:hover, .navbar-link:hover, .entertainment .card__link:hover {
   transition: 0.3s;
 }
-.green-button:active, .white-button:active, .input:active, .header .menu__link:active, .header .menu__link-active:active, .entertainment .card__link:active {
+.green-button:active, .white-button:active, .input:active, .navbar-link:active, .entertainment .card__link:active {
   transition: 0.05s;
 }
 
@@ -394,7 +394,7 @@ html {
     margin-left: 80px;
   }
 }
-.header .menu__link-active {
+.header .menu__item:first-child .menu__link {
   color: #bc6c25;
 }
 .header__bar:first-child {
@@ -1342,4 +1342,66 @@ html {
     height: 580px;
     border-width: 3px;
   }
+}
+
+.footer {
+  margin-top: 40px;
+  background-color: #faedcd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+@media only screen and (min-width: 1280px) {
+  .footer {
+    margin-top: 90px;
+  }
+}
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media only screen and (min-width: 1280px) {
+  .footer__content {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+.footer__logo {
+  width: 80px;
+  height: 52px;
+}
+@media only screen and (min-width: 1280px) {
+  .footer__logo {
+    width: 125px;
+    height: 80px;
+  }
+}
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .footer__social {
+    gap: 40px;
+    margin-left: auto;
+  }
+}
+.footer__social-image {
+  width: 50px;
+  height: 50px;
+}
+.footer .menu {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .footer .menu {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    margin-left: 80px;
+  }
+}
+.footer .menu__item:first-child .menu__link {
+  color: #bc6c25;
 }
