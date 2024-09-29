@@ -262,13 +262,13 @@ legend {
   }
 }
 
-.footer__social-link, .green-button, .white-button, .input, .navbar-link, .entertainment .card__link {
+.green-button, .white-button, .input, .navbar-link, .entertainment .card__link {
   transition: 0.3s;
 }
-.footer__social-link:hover, .green-button:hover, .white-button:hover, .input:hover, .navbar-link:hover, .entertainment .card__link:hover {
+.green-button:hover, .white-button:hover, .input:hover, .navbar-link:hover, .entertainment .card__link:hover {
   transition: 0.3s;
 }
-.footer__social-link:active, .green-button:active, .white-button:active, .input:active, .navbar-link:active, .entertainment .card__link:active {
+.green-button:active, .white-button:active, .input:active, .navbar-link:active, .entertainment .card__link:active {
   transition: 0.05s;
 }
 
@@ -541,12 +541,6 @@ html {
     width: 50px;
     height: 50px;
   }
-}
-.footer__social-link:hover {
-  scale: 1.2;
-}
-.footer__social-link:active {
-  scale: 0.9;
 }
 .footer .menu {
   display: none;
