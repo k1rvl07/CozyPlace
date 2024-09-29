@@ -674,6 +674,7 @@ html {
         @include border(all, 2px, solid, color("dark-green"), 18px);
         @include respond-to("desktop") {
             @include size(default, 1280px, 67px);
+            border-width: 3px;
         }
         &-bar {
             @include flex(on, $justify: space-between, $align: center);
@@ -708,3 +709,55 @@ html {
         }
     }
 }
+
+.contact {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__text {
+        @extend %contact-text;
+    }
+    &__info-map {
+        @include flex(on, column-reverse, $gap: 20px, $align: center);
+        @include respond-to("desktop") {
+            @include flex($direction: row, $justify: space-between);
+        }
+    }
+    &__info {
+        @include flex(on, column, $gap: 20px, $align: center);
+        @include respond-to("desktop") {
+            @include flex($align: flex-start, $gap: 77px);
+        }
+    }
+    &__block {
+        @include flex(on, column, $gap: 10px, $align: center);
+        @include respond-to("desktop") {
+            @include flex($align: flex-start, $gap: 20px);
+        }
+        &:nth-child(1) {
+            @include respond-to("desktop") {
+                .contact__image {
+                    @include size(default, 65px, 61px);
+                }
+            }
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+            @include respond-to("desktop") {
+                .contact__image {
+                    @include size(default, 80px);
+                }
+            }
+        }
+    }
+    &__map {
+        @include size(default, 300px, 260px);
+        @include border(all, 2px, solid, color("dark-green"), 18px);
+        @include respond-to("desktop") {
+            @include size(default, 932px, 580px);
+            border-width: 3px;
+        }
+    }
+}
+

@@ -186,6 +186,19 @@ legend {
   }
 }
 
+.contact__text {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: #283618;
+}
+@media only screen and (min-width: 1280px) {
+  .contact__text {
+    font-size: 24px;
+  }
+}
+
 .header .menu__link, .header .menu__link-active {
   font-family: "Noto Sans";
   font-weight: 500;
@@ -1209,6 +1222,7 @@ html {
   .questions__question {
     width: 1280px;
     height: 67px;
+    border-width: 3px;
   }
 }
 .questions__question-bar {
@@ -1252,5 +1266,80 @@ html {
   .questions__plus {
     width: 24px;
     height: 24px;
+  }
+}
+
+.contact {
+  margin-top: 40px;
+}
+@media only screen and (min-width: 1280px) {
+  .contact {
+    margin-top: 90px;
+  }
+}
+.contact__info-map {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .contact__info-map {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .contact__info {
+    display: flex;
+    align-items: flex-start;
+    gap: 77px;
+  }
+}
+.contact__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .contact__block {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .contact__block:nth-child(1) .contact__image {
+    width: 65px;
+    height: 61px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .contact__block:nth-child(2) .contact__image, .contact__block:nth-child(3) .contact__image {
+    width: 80px;
+    height: 80px;
+  }
+}
+.contact__map {
+  width: 300px;
+  height: 260px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #283618;
+  border-radius: 18px;
+}
+@media only screen and (min-width: 1280px) {
+  .contact__map {
+    width: 932px;
+    height: 580px;
+    border-width: 3px;
   }
 }
