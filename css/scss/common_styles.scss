@@ -1,0 +1,182 @@
+html {
+    background-color: color("white");
+}
+
+.container {
+    @extend %container;
+}
+
+.secondary-title {
+    @extend %secondary-title;
+    margin-bottom: 20px;
+    @include respond-to("desktop") {
+        margin-bottom: 30px;
+    }
+}
+
+.simple-text {
+    @extend %simple-text;
+}
+
+.slider {
+    @extend %slider;
+
+    &__slides {
+        @extend %slides;
+    }
+
+    &__slide {
+        @extend %slide;
+    }
+}
+
+.break-mobile {
+    display: block;
+    @include respond-to("desktop") {
+        display: none;
+    }
+}
+
+.break-desktop {
+    display: none;
+    @include respond-to("desktop") {
+        display: block;
+    }
+}
+
+.white-button {
+    @include button("white");
+}
+
+.green-button {
+    @include button("green");
+}
+
+.input {
+    @extend %input;
+}
+
+.navbar-link {
+    @extend %navbar;
+}
+
+.header {
+    background-color: color("extra-white");
+    &__logo {
+        @include size(default, 80px, 52px);
+        @include respond-to("desktop") {
+            @include size(default, 125px, 80px);
+        }
+    }
+    .menu {
+        @include flex(on, $justify: space-between, $align: center);
+        &:nth-child(2) {
+            display: none;
+            @include respond-to("desktop") {
+                @include flex(on, $justify: space-between, $align: center, $gap: 70px);
+                margin-left: 80px;
+            }
+        }
+        &__link-active {
+            color: color("dark-orange");
+        }
+    }
+    &__bar {
+        &:first-child {
+            @include flex(on, $justify: space-between, $align: center);
+            @include axis-indent(padding, y, 3px);
+            @include respond-to("desktop") {
+                @include flex($justify: flex-start);
+                @include axis-indent(padding, y, 5px);
+            }
+        }
+        &:last-child {
+            @include axis-indent(padding, y, 10px);
+            @include border($sides: top, $width: 1px, $style: solid, $color: color("dark-green"));
+            @include respond-to("desktop") {
+                display: none;
+            }
+        }
+    }
+    &__search {
+        position: relative;
+        margin-left: auto;
+    }
+    &__input {
+        padding-left: 10px;
+        padding-right: 26px;
+        @include axis-indent(padding, y, 6px);
+        @include size(default, 140px, 28px);
+        font-size: 12px;
+        border-radius: 10px;
+        border-width: 2px;
+        @include respond-to("desktop") {
+            @include size(default, 240px, 50px);
+            font-size: 16px;
+            padding-left: 20px;
+            padding-right: 54px;
+            @include axis-indent(padding, y, 14px);
+            border-radius: 18px;
+            border-width: 3px;
+        }
+    }
+    &__loupe {
+        @include size(default, 13px);
+        position: absolute;
+        color: color("green");
+        &:hover,
+        &:active {
+            color: color("dark-orange");
+        }
+        right: 10px;
+        top: 7px;
+        @include respond-to("desktop") {
+            right: 20px;
+            @include size(default, 24px);
+            top: 13px;
+        }
+    }
+}
+
+.footer {
+    margin-top: 40px;
+    background-color: color("extra-white");
+    @include axis-indent(padding, y, 5px);
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__content {
+        @include flex(on, $align: center, $justify: space-between);
+        @include respond-to("desktop") {
+            @include flex(on, $justify: flex-start);
+        }
+    }
+    &__logo {
+        @include size(default, 80px, 52px);
+        @include respond-to("desktop") {
+            @include size(default, 125px, 80px);
+        }
+    }
+    &__social {
+        @include flex(on, $gap: 20px, $align: center);
+        @include respond-to("desktop") {
+            gap: 40px;
+            margin-left: auto;
+        }
+        &-image {
+            @include respond-to("desktop") {
+                @include size(default, 50px);
+            }
+        }
+    }
+    .menu {
+        display: none;
+        @include respond-to("desktop") {
+            @include flex(on, $gap: 70px, $align: center);
+            margin-left: 80px;
+        }
+        &__link-active {
+            color: color("dark-orange");
+        }
+    }
+}

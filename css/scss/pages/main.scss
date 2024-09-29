@@ -1,0 +1,622 @@
+.main {
+    background-image: url("../images/main_photo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    @include size(default, null, 242px);
+    @include respond-to("desktop") {
+        background-image: url("../images/main_photo_desktop.png");
+        @include size(default, null, 700px);
+    }
+    &__content {
+        padding-top: 35px;
+        @include respond-to("desktop") {
+            padding-top: 357px;
+            @include flex(on, $justify: center);
+        }
+    }
+    &__substrate {
+        @include size(default, 300px, 171px);
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 18px;
+        @include axis-indent(padding, xy, 15px, 15px);
+        @include flex(on, column, space-between);
+        @include respond-to("desktop") {
+            background-color: transparent;
+            @include axis-indent(padding, xy, 0px, 0px);
+            @include size(default, 660px, 163px);
+        }
+    }
+    &__title {
+        @extend %main-title;
+    }
+    &__subtitle {
+        @extend %main-subtitle;
+    }
+    &__button {
+        @include axis-indent(padding, xy, 18.5px, 12.5px);
+        font-size: 14px;
+        border-radius: 18px;
+        @include respond-to("desktop") {
+            font-size: 20px;
+            @include axis-indent(padding, xy, 75.5px, 14px);
+            border-radius: 20px;
+        }
+    }
+    &__row {
+        @include respond-to("desktop") {
+            @include flex(on, $justify: space-between, $align: flex-end);
+        }
+        &:nth-child(1) {
+            .main__button {
+                display: none;
+                @include respond-to("desktop") {
+                    display: block;
+                    margin-bottom: 4px;
+                }
+            }
+            .main__title {
+                &:nth-child(2) {
+                    @include respond-to("desktop") {
+                        display: none;
+                    }
+                }
+            }
+        }
+        &:nth-child(2) {
+            @include flex(on, $justify: space-between, $align: center);
+            .main__title {
+                display: none;
+                @include respond-to("desktop") {
+                    display: block;
+                }
+            }
+            .main__button {
+                @include respond-to("desktop") {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.about {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__topic {
+        @extend %about-topic;
+    }
+    &__highlight {
+        font-weight: font-weight("bold");
+        color: color("dark-orange");
+    }
+    &__collage {
+        display: none;
+        margin-top: 30px;
+        @include respond-to("desktop") {
+            @include flex(on, $wrap: wrap, $gap: 10px);
+        }
+        .about__text {
+            &:nth-child(2),
+            &:nth-child(4) {
+                margin-left: auto;
+            }
+        }
+    }
+    &__text {
+        transition: opacity 1s ease-in-out;
+        @include axis-indent(padding, xy, 20px, 20px);
+        @include respond-to("desktop") {
+            @include size(default, 380px, 135px);
+            @include axis-indent(padding, xy, 0px, 0px);
+        }
+    }
+    &__image {
+        @include size(default, 300px, 311px);
+        @include axis-indent(margin, y, 10px);
+        @include respond-to("desktop") {
+            @include size(default, 406px, 421px);
+        }
+    }
+    &__text-slider {
+        background-color: color("extra-green");
+        border-radius: 18px;
+        @include respond-to("desktop") {
+            display: none;
+        }
+    }
+    &__info {
+        @include respond-to("desktop") {
+            @include size(default, 796px, 417px);
+        }
+    }
+    &__image-info {
+        @include respond-to("desktop") {
+            @include flex(on, row-reverse, space-between, center);
+        }
+    }
+}
+
+.habitation {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    .card {
+        @include size(default, 300px, 477px);
+        @include respond-to("desktop") {
+            @include size(default, 305px, 630px);
+        }
+        &__main-info {
+            @include flex(on, $justify: space-between, $align: center);
+            @include axis-indent(padding, y, 10px);
+            @include respond-to("desktop") {
+                padding-top: 16px;
+                padding-bottom: 14px;
+            }
+        }
+        &__title {
+            @extend %habitation-food-card-title;
+        }
+        &__price {
+            @extend %habitation-card-price;
+        }
+        &__description {
+            padding-bottom: 10px;
+            @include respond-to("desktop") {
+                padding-bottom: 12.5px;
+            }
+        }
+        &__image {
+            @include size(default, 300px, 300px);
+            @include respond-to("desktop") {
+                @include size(default, 305px, 366px);
+            }
+        }
+        &__button {
+            @include size(default, 300px, 44px);
+            border-radius: 18px;
+            border-width: 3px;
+            font-size: 18px;
+            @include respond-to("desktop") {
+                @include size(default, 305px, 53px);
+                border-radius: 20px;
+            }
+        }
+    }
+    .slider {
+        @include size(default, 300px, 477px);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, fit-content);
+        }
+        &__slides {
+            @include flex(on, $justify: space-between, $align: center, $gap: 30px);
+            @include respond-to("desktop") {
+                @include flex($gap: 9px);
+                @include size(default, 1280px, fit-content);
+            }
+        }
+        &__slide {
+            @include respond-to("desktop") {
+                @include size(default, 305px, 640px);
+            }
+        }
+        &__line {
+            display: none;
+            @include respond-to("desktop") {
+                display: block;
+            }
+        }
+    }
+}
+
+.food {
+    background-color: color("extra-green");
+    margin-top: 40px;
+    @include axis-indent(padding, y, 20px);
+    @include respond-to("desktop") {
+        margin-top: 90px;
+        @include axis-indent(padding, y, 40px);
+    }
+    &__collage {
+        margin-bottom: 10px;
+        @include respond-to("desktop") {
+            @include flex(on, $justify: space-between, $align: center);
+            margin-bottom: 30px;
+        }
+    }
+    &__image {
+        @include size(default, 300px, 200px);
+        transition: opacity 0.5s ease-in-out;
+        &:nth-child(2),
+        &:nth-child(3) {
+            display: none;
+        }
+        @include respond-to("desktop") {
+            @include size(default, 410px, 325px);
+            &:nth-child(2),
+            &:nth-child(3) {
+                display: block;
+            }
+        }
+    }
+    &__description {
+        @include axis-indent(padding, y, 10px);
+        @include respond-to("desktop") {
+            padding-top: 0px;
+            padding-bottom: 15px;
+        }
+        &-bold {
+            font-weight: font-weight("bold");
+        }
+    }
+    &__menu {
+        @include size(default, 300px, 785px);
+        @include border(all, 4px, solid, color("green"), 20px);
+        @include flex(on, column, center, center);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 423px);
+            border-width: 6px;
+        }
+        &-content {
+            @include size(default, 260px, 745px);
+            @include respond-to("desktop") {
+                @include flex(on, row, $justify: space-between, $align: center);
+                @include size(default, 1210px, 352px);
+            }
+        }
+        &-main-info {
+            @include respond-to("desktop") {
+                @include size(default, 878px, 349px);
+            }
+        }
+        &-image {
+            @include respond-to("desktop") {
+                @include size(default, 292px, 353px);
+            }
+        }
+    }
+    &__seasons {
+        @include flex(on, column, $align: center, $gap: 10px);
+        @include respond-to("desktop") {
+            gap: 15px;
+        }
+    }
+    &__season {
+        @include flex(on, $justify: space-between, $align: center);
+        @include size(default, 260px, null);
+        @include respond-to("desktop") {
+            @include size(default, 878px, 52px);
+        }
+        &-text {
+            @include size(default, 193px, 57px);
+            @include respond-to("desktop") {
+                @include size(default, 810px, 27px);
+            }
+        }
+    }
+}
+
+.entertainment {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    .card {
+        background-color: color("extra-green");
+        @include size(default, 300px, 362px);
+        @include flex(on, $justify: center, $align: center);
+        border-radius: 20px;
+        @include respond-to("desktop") {
+            @include size(default, 630px, 240px);
+        }
+        &__title {
+            @extend %habitation-food-card-title;
+        }
+        &__main-info {
+            @include flex(on, $justify: space-between, $align: center);
+            @include axis-indent(padding, y, 10px);
+            @include respond-to("desktop") {
+                padding-top: 0px;
+                padding-bottom: 12px;
+            }
+        }
+        &__content {
+            @include size(default, 260px, 322px);
+            @include respond-to("desktop") {
+                @include size(default, 590px, 200px);
+                @include flex(on, $justify: space-between, $align: center);
+            }
+        }
+        &__link {
+            @extend %entertainment-link;
+            @include flex(on, $gap: 4px);
+            @include respond-to("desktop") {
+                gap: 8px;
+            }
+        }
+        &__text {
+            @include respond-to("desktop") {
+                @include size(default, 370px, 182px);
+            }
+        }
+        &__image {
+            @include respond-to("desktop") {
+                @include size(default, 200px);
+                border-radius: 50%;
+            }
+        }
+        &__arrow {
+            @include size(default, 8px, 10px);
+            margin-top: 6px;
+            @include respond-to("desktop") {
+                @include size(default, 10px, 16px);
+            }
+        }
+    }
+    .slider {
+        @include size(default, 300px, 362px);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 500px);
+        }
+        &__slides {
+            @include flex(on, $align: center, $gap: 30px);
+            @include respond-to("desktop") {
+                @include flex($wrap: wrap, $gap: 20px);
+            }
+        }
+    }
+}
+
+.news {
+    margin-top: 40px;
+    background-color: color("extra-green");
+    @include axis-indent(padding, y, 20px);
+    @include respond-to("desktop") {
+        margin-top: 90px;
+        @include axis-indent(padding, y, 40px);
+    }
+    &__description {
+        @include axis-indent(margin, y, 20px);
+        @include respond-to("desktop") {
+            margin-bottom: 30px;
+        }
+    }
+    &__form {
+        @include flex(on, column, $align: center, $gap: 10px);
+        @include respond-to("desktop") {
+            @include flex(on, row, $justify: space-between);
+        }
+    }
+    &__input {
+        @include size(default, 300px, 44px);
+        border-radius: 18px;
+        border-width: 3px;
+        @include axis-indent(padding, x, 30px);
+        font-size: 16px;
+        @include respond-to("desktop") {
+            @include size(default, 470px, 60px);
+            font-size: 18px;
+        }
+    }
+    &__button {
+        @include size(default, 300px, 44px);
+        border-radius: 18px;
+        border-width: 3px;
+        font-size: 16px;
+        @include respond-to("desktop") {
+            @include size(default, 240px, 60px);
+            font-size: 18px;
+        }
+    }
+}
+
+.reviews {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    .card {
+        &__reviewer {
+            background-color: color("extra-green");
+            @include size(default, fit-content);
+            border-radius: 18px;
+            &-content {
+                @include flex(on, $align: center, $gap: 15px);
+                @include axis-indent(padding, xy, 20px, 10px);
+            }
+        }
+        &__name {
+            @extend %reviews-name;
+        }
+        &__text {
+            background-color: color("extra-green");
+            margin-top: 10px;
+            @include size(default, 300px, 202px);
+            border-radius: 18px;
+            @include respond-to("desktop") {
+                @include size(default, 629px, 202px);
+                margin-top: 20px;
+            }
+        }
+        &__description {
+            @include axis-indent(padding, xy, 20px, 15px);
+            @include respond-to("desktop") {
+                @include axis-indent(padding, y, 20px);
+            }
+        }
+        &__image {
+            @include size(default, 40px);
+            @include respond-to("desktop") {
+                @include size(default, 50px);
+            }
+        }
+    }
+    .slider {
+        @include size(default, 300px, 272px);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 614px);
+        }
+        &__slides {
+            @include flex(on, row, $align: center, $gap: 30px);
+            @include respond-to("desktop") {
+                @include flex($justify: space-between, $wrap: wrap, $gap: 22px);
+            }
+        }
+        &__slide {
+            @include respond-to("desktop") {
+                &:nth-child(3),
+                &:nth-child(4) {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+}
+
+.photos {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__collage {
+        @include flex(on, $wrap: wrap, $gap: 25px);
+    }
+    &__image {
+        border-radius: 18px;
+        transition: opacity 0.5s ease-in-out;
+        @include size(default, 300px, 280px);
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            display: none;
+        }
+        @include respond-to("desktop") {
+            display: block !important;
+            @include size(default, 100%);
+            &:nth-child(2),
+            &:nth-child(3) {
+                @include size(default, 845px, 325px);
+            }
+            &:nth-child(1),
+            &:nth-child(4) {
+                @include size(default, 410px, 325px);
+            }
+        }
+    }
+}
+
+.questions {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__text {
+        font-weight: font-weight("semi-bold");
+        color: color("dark-green");
+        margin-left: 20px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        @include respond-to("desktop") {
+            margin-top: 16px;
+        }
+    }
+    &__container {
+        @include flex(on, $wrap: wrap, $gap: 10px, $align: center);
+    }
+    &__question {
+        transition: height 0.3s ease;
+        overflow: hidden;
+        @include size(default, 300px, 44px);
+        background-color: color("extra-green");
+        @include border(all, 2px, solid, color("dark-green"), 18px);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 67px);
+            border-width: 3px;
+        }
+        &-bar {
+            @include flex(on, $justify: space-between, $align: center);
+        }
+    }
+    &__button {
+        @include size(default, 28px);
+        background-color: color("green");
+        border-radius: 50%;
+        margin-right: 14px;
+        margin-top: 7px;
+        margin-bottom: 8px;
+        @include respond-to("desktop") {
+            @include size(default, 40px);
+            margin-right: 20px;
+            margin-top: 12px;
+        }
+    }
+    &__answer {
+        margin-top: 5px;
+        @include axis-indent(padding, x, 20px);
+        padding-bottom: 12px;
+        @include respond-to("desktop") {
+            margin-top: 12px;
+            padding-bottom: 20px;
+        }
+    }
+    &__plus {
+        transition: transform 0.3s ease;
+        @include respond-to("desktop") {
+            @include size(default, 24px);
+        }
+    }
+}
+
+.contact {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__text {
+        @extend %contact-text;
+    }
+    &__info-map {
+        @include flex(on, column-reverse, $gap: 20px, $align: center);
+        @include respond-to("desktop") {
+            @include flex($direction: row, $justify: space-between);
+        }
+    }
+    &__info {
+        @include flex(on, column, $gap: 20px, $align: center);
+        @include respond-to("desktop") {
+            @include flex($align: flex-start, $gap: 77px);
+        }
+    }
+    &__block {
+        @include flex(on, column, $gap: 10px, $align: center);
+        @include respond-to("desktop") {
+            @include flex($align: flex-start, $gap: 20px);
+        }
+        &:nth-child(1) {
+            @include respond-to("desktop") {
+                .contact__image {
+                    @include size(default, 65px, 61px);
+                }
+            }
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+            @include respond-to("desktop") {
+                .contact__image {
+                    @include size(default, 80px);
+                }
+            }
+        }
+    }
+    &__map {
+        @include size(default, 300px, 260px);
+        @include border(all, 2px, solid, color("dark-green"), 18px);
+        @include respond-to("desktop") {
+            @include size(default, 932px, 580px);
+            border-width: 3px;
+        }
+    }
+}

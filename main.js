@@ -165,3 +165,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     resetQuestions();
 });
+
+// Переход на страницу бронирования
+
+document.addEventListener('DOMContentLoaded', function () {
+    const greenButtons = document.querySelectorAll('.card__button');
+    const mainButtons = document.querySelectorAll('.main__button');
+
+    greenButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            window.location.href = './booking.html';
+        });
+    });
+
+    mainButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            window.location.href = './booking.html';
+        });
+    });
+});

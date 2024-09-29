@@ -11,7 +11,9 @@
   box-sizing: border-box;
 }
 
-a, a:link, a:visited {
+a,
+a:link,
+a:visited {
   text-decoration: none;
 }
 
@@ -19,16 +21,28 @@ a:hover {
   text-decoration: none;
 }
 
-aside, nav, footer, header, section, main {
+aside,
+nav,
+footer,
+header,
+section,
+main {
   display: block;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   font-size: inherit;
   font-weight: inherit;
 }
 
-ul, ul li {
+ul,
+ul li {
   list-style: none;
 }
 
@@ -36,7 +50,8 @@ img {
   vertical-align: top;
 }
 
-img, svg {
+img,
+svg {
   max-width: 100%;
   height: auto;
 }
@@ -45,7 +60,10 @@ address {
   font-style: normal;
 }
 
-input, textarea, button, select {
+input,
+textarea,
+button,
+select {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
@@ -56,7 +74,8 @@ input::-ms-clear {
   display: none;
 }
 
-button, input[type=submit] {
+button,
+input[type=submit] {
   display: inline-block;
   box-shadow: none;
   background-color: transparent;
@@ -64,8 +83,10 @@ button, input[type=submit] {
   cursor: pointer;
 }
 
-input:focus, input:active,
-button:focus, button:active {
+input:focus,
+input:active,
+button:focus,
+button:active {
   outline: none;
 }
 
@@ -394,7 +415,7 @@ html {
     margin-left: 80px;
   }
 }
-.header .menu__item:first-child .menu__link {
+.header .menu__link-active {
   color: #bc6c25;
 }
 .header__bar:first-child {
@@ -470,6 +491,70 @@ html {
     height: 24px;
     top: 13px;
   }
+}
+
+.footer {
+  margin-top: 40px;
+  background-color: #faedcd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+@media only screen and (min-width: 1280px) {
+  .footer {
+    margin-top: 90px;
+  }
+}
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media only screen and (min-width: 1280px) {
+  .footer__content {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+.footer__logo {
+  width: 80px;
+  height: 52px;
+}
+@media only screen and (min-width: 1280px) {
+  .footer__logo {
+    width: 125px;
+    height: 80px;
+  }
+}
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .footer__social {
+    gap: 40px;
+    margin-left: auto;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .footer__social-image {
+    width: 50px;
+    height: 50px;
+  }
+}
+.footer .menu {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .footer .menu {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    margin-left: 80px;
+  }
+}
+.footer .menu__link-active {
+  color: #bc6c25;
 }
 
 .main {
@@ -725,7 +810,7 @@ html {
 @media only screen and (min-width: 1280px) {
   .habitation .slider {
     width: 1280px;
-    height: 632px;
+    height: fit-content;
   }
 }
 .habitation .slider__slides {
@@ -738,6 +823,14 @@ html {
   .habitation .slider__slides {
     display: flex;
     gap: 9px;
+    width: 1280px;
+    height: fit-content;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .habitation .slider__slide {
+    width: 305px;
+    height: 640px;
   }
 }
 .habitation .slider__line {
@@ -1342,66 +1435,4 @@ html {
     height: 580px;
     border-width: 3px;
   }
-}
-
-.footer {
-  margin-top: 40px;
-  background-color: #faedcd;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-@media only screen and (min-width: 1280px) {
-  .footer {
-    margin-top: 90px;
-  }
-}
-.footer__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-@media only screen and (min-width: 1280px) {
-  .footer__content {
-    display: flex;
-    justify-content: flex-start;
-  }
-}
-.footer__logo {
-  width: 80px;
-  height: 52px;
-}
-@media only screen and (min-width: 1280px) {
-  .footer__logo {
-    width: 125px;
-    height: 80px;
-  }
-}
-.footer__social {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-@media only screen and (min-width: 1280px) {
-  .footer__social {
-    gap: 40px;
-    margin-left: auto;
-  }
-}
-.footer__social-image {
-  width: 50px;
-  height: 50px;
-}
-.footer .menu {
-  display: none;
-}
-@media only screen and (min-width: 1280px) {
-  .footer .menu {
-    display: flex;
-    align-items: center;
-    gap: 70px;
-    margin-left: 80px;
-  }
-}
-.footer .menu__item:first-child .menu__link {
-  color: #bc6c25;
 }
