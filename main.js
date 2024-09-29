@@ -103,3 +103,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('resize', checkScreenWidth);
 });
+
+// Открытие и закрытие вопросов в блоке "Частые вопросы"
+
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButtons = document.querySelectorAll('.questions__button');
+    const questions = document.querySelectorAll('.questions__question');
+    const answers = document.querySelectorAll('.questions__answer');
+
+    let lastWidth = window.innerWidth;
+
+    function resetQuestions() {
+        questions.forEach((question, index) => {
+            const img = toggleButtons[index].querySelector('img');
+            img.style.transform = 'rotate(0deg)';
+            if (window.innerWidth >= 1280) {
+                question.style.height = '67px';
+            } else {
+                question.style.height = '44px';
+            }
+        });
+    }
+
+    toggleButtons.forEach((button, index) => {
+        let isExpanded = false;
+
+        button.addEventListener('click', function () {
+            const img = button.querySelector('img');
+            if (isExpanded) {
+                img.style.transform = 'rotate(0deg)';
+            } else {
+                img.style.transform = 'rotate(135deg)';
+            }
+
+            const question = questions[index];
+            if (isExpanded) {
+                if (window.innerWidth >= 1280) {
+                    question.style.height = '67px';
+                } else {
+                    question.style.height = '44px';
+                }
+            } else {
+                if (window.innerWidth >= 1280) {
+                    question.style.height = `${question.scrollHeight}px`;
+                } else {
+                    question.style.height = `${question.scrollHeight}px`;
+                }
+            }
+
+            isExpanded = !isExpanded;
+        });
+    });
+
+    window.addEventListener('resize', function () {
+        const currentWidth = window.innerWidth;
+        if ((lastWidth >= 1280 && currentWidth < 1280) || (lastWidth < 1280 && currentWidth >= 1280)) {
+            resetQuestions();
+        }
+        lastWidth = currentWidth;
+    });
+
+    resetQuestions();
+});

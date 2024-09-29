@@ -1013,6 +1013,7 @@ html {
   width: 300px;
   height: 44px;
   border-radius: 18px;
+  border-width: 3px;
   padding-left: 30px;
   padding-right: 30px;
   font-size: 16px;
@@ -1028,6 +1029,7 @@ html {
   width: 300px;
   height: 44px;
   border-radius: 18px;
+  border-width: 3px;
   font-size: 16px;
 }
 @media only screen and (min-width: 1280px) {
@@ -1163,5 +1165,92 @@ html {
   .photos__image:nth-child(1), .photos__image:nth-child(4) {
     width: 410px;
     height: 325px;
+  }
+}
+
+.questions {
+  margin-top: 40px;
+}
+@media only screen and (min-width: 1280px) {
+  .questions {
+    margin-top: 90px;
+  }
+}
+.questions__text {
+  font-weight: 600;
+  color: #283618;
+  margin-left: 20px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+@media only screen and (min-width: 1280px) {
+  .questions__text {
+    margin-top: 16px;
+  }
+}
+.questions__container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.questions__question {
+  transition: height 0.3s ease;
+  overflow: hidden;
+  width: 300px;
+  height: 44px;
+  background-color: #e9edc9;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #283618;
+  border-radius: 18px;
+}
+@media only screen and (min-width: 1280px) {
+  .questions__question {
+    width: 1280px;
+    height: 67px;
+  }
+}
+.questions__question-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.questions__button {
+  width: 28px;
+  height: 28px;
+  background-color: #606c38;
+  border-radius: 50%;
+  margin-right: 14px;
+  margin-top: 7px;
+  margin-bottom: 8px;
+}
+@media only screen and (min-width: 1280px) {
+  .questions__button {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    margin-top: 12px;
+  }
+}
+.questions__answer {
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 12px;
+}
+@media only screen and (min-width: 1280px) {
+  .questions__answer {
+    margin-top: 12px;
+    padding-bottom: 20px;
+  }
+}
+.questions__plus {
+  transition: transform 0.3s ease;
+}
+@media only screen and (min-width: 1280px) {
+  .questions__plus {
+    width: 24px;
+    height: 24px;
   }
 }

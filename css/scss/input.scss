@@ -532,6 +532,7 @@ html {
     &__input {
         @include size(default, 300px, 44px);
         border-radius: 18px;
+        border-width: 3px;
         @include axis-indent(padding, x, 30px);
         font-size: 16px;
         @include respond-to("desktop") {
@@ -542,6 +543,7 @@ html {
     &__button {
         @include size(default, 300px, 44px);
         border-radius: 18px;
+        border-width: 3px;
         font-size: 16px;
         @include respond-to("desktop") {
             @include size(default, 240px, 60px);
@@ -642,6 +644,67 @@ html {
             &:nth-child(4) {
                 @include size(default, 410px, 325px);
             }
+        }
+    }
+}
+
+.questions {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__text {
+        font-weight: font-weight("semi-bold");
+        color: color("dark-green");
+        margin-left: 20px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        @include respond-to("desktop") {
+            margin-top: 16px;
+        }
+    }
+    &__container {
+        @include flex(on, $wrap: wrap, $gap: 10px, $align: center);
+    }
+    &__question {
+        transition: height 0.3s ease;
+        overflow: hidden;
+        @include size(default, 300px, 44px);
+        background-color: color("extra-green");
+        @include border(all, 2px, solid, color("dark-green"), 18px);
+        @include respond-to("desktop") {
+            @include size(default, 1280px, 67px);
+        }
+        &-bar {
+            @include flex(on, $justify: space-between, $align: center);
+        }
+    }
+    &__button {
+        @include size(default, 28px);
+        background-color: color("green");
+        border-radius: 50%;
+        margin-right: 14px;
+        margin-top: 7px;
+        margin-bottom: 8px;
+        @include respond-to("desktop") {
+            @include size(default, 40px);
+            margin-right: 20px;
+            margin-top: 12px;
+        }
+    }
+    &__answer {
+        margin-top: 5px;
+        @include axis-indent(padding, x, 20px);
+        padding-bottom: 12px;
+        @include respond-to("desktop") {
+            margin-top: 12px;
+            padding-bottom: 20px;
+        }
+    }
+    &__plus {
+        transition: transform 0.3s ease;
+        @include respond-to("desktop") {
+            @include size(default, 24px);
         }
     }
 }
