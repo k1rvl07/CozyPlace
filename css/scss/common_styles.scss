@@ -168,6 +168,15 @@ html {
                 @include size(default, 50px);
             }
         }
+        &-link {
+            @extend %simple-transition;
+            &:hover {
+                scale: 1.2;
+            }
+            &:active {
+                scale: 0.9;
+            }
+        }
     }
     .menu {
         display: none;
