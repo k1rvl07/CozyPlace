@@ -1,0 +1,78 @@
+.entertainment-cards {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__content {
+        @include flex(on, column, space-between, center, wrap, 10px);
+        @include respond-to("desktop") {
+            @include flex(on, row, $gap: 10px);
+        }
+    }
+    &__attention {
+        background-color: color("extra-green");
+        margin-top: 20px;
+        @include respond-to("desktop") {
+            margin-top: 30px;
+            @include size(default, fit-content);
+            @include axis-indent(margin, x, auto);
+        }
+        &-text {
+            @extend %entertainment-attention;
+            @include axis-indent(padding, xy, 10px, 10px);
+            @include respond-to("desktop") {
+                @include axis-indent(padding, xy, 20px, 20px);
+            }
+        }
+    }
+    .card {
+        @include border(all, 2px, solid, color("green"), 8px);
+        @include size(default, fit-content);
+        &__content {
+            @include axis-indent(padding, xy, 10px, 10px);
+            @include respond-to("desktop") {
+                @include size(default, 630px, null);
+                @include axis-indent(padding, xy, 30px, 30px);
+            }
+        }
+        &__main-info {
+            @include flex(on, $justify: space-between, $align: center);
+        }
+        &__description {
+            @include axis-indent(margin, y, 10px);
+            @include respond-to("desktop") {
+                @include axis-indent(margin, y, 20px);
+            }
+        }
+        &__title {
+            @extend %entertainment-card-title;
+        }
+        &__price {
+            @extend %entertainment-card-price;
+        }
+        &__subtitle {
+            @extend %entertainment-card-subtitle;
+            margin-bottom: 8px;
+            @include respond-to("desktop") {
+                margin-bottom: 10px;
+            }
+        }
+        &__text {
+            @extend %entertainment-card-text;
+            &:nth-child(4) {
+                margin-bottom: 10px;
+                @include respond-to("desktop") {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        &__image {
+            @include size(default, 300px, 360px);
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            @include respond-to("desktop") {
+                @include size(default, 630px, 418px);
+            }
+        }
+    }
+}

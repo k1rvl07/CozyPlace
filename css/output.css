@@ -220,6 +220,71 @@ legend {
   }
 }
 
+.entertainment-cards .card__title {
+  font-family: "Noto Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  color: #283618;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__title {
+    font-size: 26px;
+  }
+}
+
+.entertainment-cards .card__price {
+  font-family: "Noto Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+  color: #bc6c25;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__price {
+    font-size: 26px;
+  }
+}
+
+.entertainment-cards .card__subtitle {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__subtitle {
+    font-size: 18px;
+  }
+}
+
+.entertainment-cards .card__text {
+  font-family: "Noto Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__text {
+    font-size: 18px;
+  }
+}
+
+.entertainment-cards__attention-text {
+  font-family: "Noto Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
+  color: black;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards__attention-text {
+    font-size: 20px;
+  }
+}
+
 .navbar-link {
   font-family: "Noto Sans";
   font-weight: 500;
@@ -616,6 +681,7 @@ html {
   padding-bottom: 12.5px;
   font-size: 14px;
   border-radius: 18px;
+  border-width: 3px;
 }
 @media only screen and (min-width: 1280px) {
   .main__button {
@@ -1045,6 +1111,9 @@ html {
     height: 182px;
   }
 }
+.entertainment .card__image {
+  border-radius: 18px;
+}
 @media only screen and (min-width: 1280px) {
   .entertainment .card__image {
     width: 200px;
@@ -1440,5 +1509,122 @@ html {
     width: 932px;
     height: 580px;
     border-width: 3px;
+  }
+}
+
+.entertainment-cards {
+  margin-top: 40px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards {
+    margin-top: 90px;
+  }
+}
+.entertainment-cards__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards__content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+.entertainment-cards__attention {
+  background-color: #e9edc9;
+  margin-top: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards__attention {
+    margin-top: 30px;
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.entertainment-cards__attention-text {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards__attention-text {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+.entertainment-cards .card {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #606c38;
+  border-radius: 8px;
+  width: fit-content;
+  height: fit-content;
+}
+.entertainment-cards .card__content {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__content {
+    width: 630px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+.entertainment-cards .card__main-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.entertainment-cards .card__description {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+.entertainment-cards .card__subtitle {
+  margin-bottom: 8px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__subtitle {
+    margin-bottom: 10px;
+  }
+}
+.entertainment-cards .card__text:nth-child(4) {
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__text:nth-child(4) {
+    margin-bottom: 20px;
+  }
+}
+.entertainment-cards .card__image {
+  width: 300px;
+  height: 360px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment-cards .card__image {
+    width: 630px;
+    height: 418px;
   }
 }

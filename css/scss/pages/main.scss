@@ -36,6 +36,7 @@
         @include axis-indent(padding, xy, 18.5px, 12.5px);
         font-size: 14px;
         border-radius: 18px;
+        border-width: 3px;
         @include respond-to("desktop") {
             font-size: 20px;
             @include axis-indent(padding, xy, 75.5px, 14px);
@@ -342,6 +343,7 @@
             }
         }
         &__image {
+            border-radius: 18px;
             @include respond-to("desktop") {
                 @include size(default, 200px);
                 border-radius: 50%;
