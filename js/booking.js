@@ -124,14 +124,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const paymentServicePrice = document.getElementById('payment-service-price');
     const bookingForm = document.querySelector('.booking__filter');
 
-    // Функция для сброса стилей
     function resetStyles(element) {
         element.style.borderColor = '#606c38';
         element.style.color = '';
         dateInPlaceholder.style.color = '';
     }
 
-    // Обработчик события для инпута даты
     dateInInput.addEventListener('input', function () {
         if (this.value) {
             dateInPlaceholder.style.display = 'none';
