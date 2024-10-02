@@ -1,0 +1,435 @@
+.booking {
+    margin-top: 40px;
+    @include respond-to("desktop") {
+        margin-top: 90px;
+    }
+    &__filter {
+        @include flex(on, column, $align: center, $justify: space-between, $gap: 10px);
+        @include respond-to("desktop") {
+            @include flex($direction: row);
+        }
+    }
+    &__input,
+    &__select {
+        @include size(default, 300px, 44px);
+        border-radius: 18px;
+        border-width: 3px;
+        padding-left: 20px;
+        font-size: 16px;
+        @include respond-to("desktop") {
+            @include size(default, 290px, 60px);
+            padding-left: 25px;
+            font-size: 18px;
+        }
+    }
+    &__select {
+        appearance: none;
+        &-container {
+            position: relative;
+        }
+    }
+    &__input {
+        padding-right: 18px;
+        &::-webkit-calendar-picker-indicator {
+            @extend %simple-transition;
+            @include size(default, 18px);
+            filter: invert(0.2) sepia(1) saturate(10) hue-rotate(60deg);
+            &:hover {
+                filter: invert(0.1) sepia(0.5) saturate(2) hue-rotate(70deg);
+            }
+            @include respond-to("desktop") {
+                @include size(default, 24px);
+            }
+        }
+    }
+    &__arrow {
+        position: absolute;
+        right: 23px;
+        top: 18px;
+        @include respond-to("desktop") {
+            @include size(default, 20px);
+            top: 22px;
+        }
+    }
+    &__button {
+        @include size(default, 300px, 44px);
+        border-radius: 18px;
+        border-width: 3px;
+        font-size: 16px;
+        margin-top: 5px;
+        @include respond-to("desktop") {
+            margin-top: 0px;
+            @include size(default, 290px, 60px);
+            font-size: 18px;
+        }
+    }
+    &__cards {
+        margin-top: 30px;
+        @include flex(on, column, $align: center, $gap: 20px);
+        @include respond-to("desktop") {
+            @include flex($direction: row, $justify: space-between, $align: flex-start, $wrap: wrap);
+            margin-top: 50px;
+        }
+    }
+
+    .card {
+        @include border(all, 2px, solid, color("green"), 8px);
+        @include respond-to("desktop") {
+            width: 630px;
+        }
+        &__image {
+            @include size(default, 300px, 360px);
+            @include respond-to("desktop") {
+                @include size(default, 630px, 418px);
+            }
+            &-container {
+                @include size(default, 300px, 360px);
+                @include respond-to("desktop") {
+                    @include size(default, 630px, 418px);
+                }
+            }
+        }
+        &__info {
+            @include axis-indent(padding, xy, 10px, 10px);
+            @include respond-to("desktop") {
+                @include axis-indent(padding, xy, 45px, 30px);
+            }
+        }
+        &__title {
+            @extend %entertainment-booking-card-title;
+        }
+        &__price {
+            @extend %entertainment-booking-card-price;
+        }
+        &__main-info {
+            @include flex(on, $justify: space-between, $align: center);
+        }
+        &__square {
+            @include flex(on, $gap: 10px, $align: center);
+            @include respond-to("desktop") {
+                @include flex($gap: 15px);
+            }
+            &-icon {
+                @include respond-to("desktop") {
+                    @include size(default, 22px);
+                }
+            }
+        }
+        &__icons {
+            @include flex(on, $gap: 10px, $align: center);
+            @include respond-to("desktop") {
+                @include flex($gap: 30px);
+            }
+            &-more {
+                @include flex(on, $justify: space-between, $align: center);
+                @include axis-indent(margin, y, 10px);
+                transition: opacity 0.5s ease;
+                @include respond-to("desktop") {
+                    @include axis-indent(margin, y, 30px);
+                }
+            }
+        }
+        &__icon {
+            @include respond-to("desktop") {
+                @include size(default, 28px);
+            }
+        }
+        &__more {
+            @include flex(on, $gap: 5px, $align: center);
+            @extend %booking-more;
+            @include respond-to("desktop") {
+                @include flex($gap: 10px);
+            }
+            &-arrow {
+                @include size(default, 6px, 10px);
+                margin-top: 2px;
+                @include respond-to("desktop") {
+                    @include size(default, 11px, 18px);
+                }
+            }
+        }
+        &__button {
+            @include size(default, 280px, 44px);
+            border-radius: 18px;
+            border-width: 3px;
+            font-size: 16px;
+            @include respond-to("desktop") {
+                @include size(default, 540px, 53px);
+                font-size: 18px;
+            }
+        }
+        &__subtitle {
+            @include flex(on, $gap: 10px, $align: center);
+            margin-top: 10px;
+            margin-bottom: 5px;
+            @include respond-to("desktop") {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            &-text {
+                @extend %entertainment-booking-card-subtitle;
+            }
+            &-icon {
+                @include respond-to("desktop") {
+                    @include size(default, 30px);
+                }
+            }
+        }
+        &__text {
+            @extend %entertainment-booking-card-text;
+            &:last-child {
+                margin-bottom: 10px;
+                @include respond-to("desktop") {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        &__hide {
+            @extend %booking-hide;
+            @include axis-indent(margin, y, 10px);
+            @include flex(on, $gap: 10px, $align: center);
+            @include respond-to("desktop") {
+                @include flex($gap: 15px);
+                @include axis-indent(margin, y, 20px);
+            }
+            &-arrow {
+                transform: rotate(-90deg);
+                @include size(default, 6px, 10px);
+                @include respond-to("desktop") {
+                    @include size(default, 11px, 18px);
+                }
+            }
+        }
+        &__additional-info {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition:
+                max-height 0.5s ease,
+                opacity 0.5s ease;
+        }
+    }
+    .slider {
+        @include size(default, 300px, 360px);
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+        overflow: hidden;
+        @include respond-to("desktop") {
+            @include size(default, 627.5px, 418px);
+        }
+        &-container {
+            position: relative;
+        }
+        &__slides {
+            @include flex(on, space-between, $align: center);
+        }
+        &__arrows {
+            position: absolute;
+            @include size(default, 300px, null);
+            top: 150px;
+            @include flex(on, $justify: space-between, $align: center);
+            @include respond-to("desktop") {
+                @include size(default, 627px, null);
+                top: 170px;
+            }
+        }
+        &__arrow {
+            @include size(default, 70px);
+            @include respond-to("desktop") {
+                @include size(default, 80px);
+            }
+        }
+    }
+}
+
+.payment {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    @include size(default, 300px, null);
+    @include respond-to("desktop") {
+        @include size(default, fit-content);
+    }
+    &__content {
+        background-color: color("white");
+        @include border(all, 5px, solid, color("green"), 10px);
+        &-container {
+            padding: 20px;
+            @include respond-to("desktop") {
+                padding: 40px;
+            }
+        }
+    }
+    &__back {
+        @extend %payment-link;
+        @include flex(on, $gap: 10px, $align: center);
+        @include respond-to("desktop") {
+            @include flex($gap: 15px);
+        }
+        &-arrow {
+            transform: rotate(180deg);
+            @include size(default, 7px, 14px);
+            @include respond-to("desktop") {
+                @include size(default, 10px, 20px);
+            }
+        }
+    }
+    &__title {
+        @extend %payment-title;
+    }
+    &__subtitle {
+        @extend %payment-subtitle;
+    }
+    &__text {
+        @extend %payment-text;
+    }
+    &__block {
+        background-color: color("extra-green");
+        border-radius: 5px;
+        margin-top: 10px;
+        @include respond-to("desktop") {
+            margin-top: 30px;
+        }
+        &-content {
+            padding: 10px;
+        }
+    }
+    &__image {
+        @include size(default, 240px, 150px);
+        @include axis-indent(margin, y, 10px);
+        border-radius: 5px;
+        @include respond-to("desktop") {
+            @include size(default, 290px, 175px);
+        }
+    }
+    &__name-price {
+        @include flex(on, $justify: space-between, $align: center);
+    }
+    &__dates {
+        @include flex(on, $justify: space-between, $align: center);
+    }
+    &__input {
+        @include size(default, 230px, 44px);
+        border-radius: 18px;
+        border-width: 3px;
+        padding-left: 30px;
+        font-size: 16px;
+        margin-top: 10px;
+        @include respond-to("desktop") {
+            @include size(default, 580px, 60px);
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        &-month,
+        &-year {
+            @include size(default, 110px, 44px);
+            @include respond-to("desktop") {
+                @include size(default, 180px, 60px);
+            }
+        }
+        &-cvv {
+            @include respond-to("desktop") {
+                @include size(default, 180px, 60px);
+            }
+        }
+    }
+    &__month-year-cvv {
+        @include flex(on, $justify: space-between, $align: center, $wrap: wrap);
+    }
+    &__icons {
+        @include flex(on, $justify: space-between, $align: center);
+        @include respond-to("desktop") {
+            @include size(default, 382px, null);
+            @include axis-indent(margin, x, auto);
+        }
+    }
+    &__icon {
+        @include respond-to("desktop") {
+            @include size(default, 77px, null);
+        }
+    }
+    &__all {
+        @include respond-to("desktop") {
+            @include flex(on, $align: center, $gap: 30px);
+        }
+    }
+    &__service-conditions {
+        @include respond-to("desktop") {
+            @include size(default, 310px, null);
+        }
+    }
+    &__hint-slogan {
+        @include respond-to("desktop") {
+            @include flex(on, $justify: space-between, $align: center);
+        }
+    }
+    &__hint-slogan-bank {
+        @include respond-to("desktop") {
+            @include size(default, 600px, null);
+        }
+    }
+    .conditions {
+        &__subtitle {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        &__button {
+            @include size(default, 230px, 44px);
+            border-radius: 18px;
+            border-width: 3px;
+            font-size: 16px;
+            margin-top: 10px;
+            @include respond-to("desktop") {
+                @include size(default, 290px, 50px);
+                font-size: 18px;
+            }
+        }
+    }
+    .hint {
+        &__text {
+            @extend %payment-hint;
+        }
+        &__content {
+            @include size(default, 284px, null);
+        }
+    }
+    .slogan {
+        display: none;
+        @include respond-to("desktop") {
+            @include flex(on, $justify: space-between, $align: center);
+            @include size(default, 261px, null);
+            margin-top: 30px;
+        }
+        &__text {
+            @extend %payment-slogan;
+        }
+    }
+    .bank {
+        &__text {
+            margin-top: 10px;
+        }
+        &__button {
+            @include size(default, 230px, 44px);
+            border-radius: 18px;
+            border-width: 3px;
+            font-size: 16px;
+            @include axis-indent(margin, y, 10px);
+            @include respond-to("desktop") {
+                @include size(default, 580px, 53px);
+                font-size: 18px;
+                @include axis-indent(margin, y, 20px);
+            }
+        }
+    }
+}
+
+.overlay {
+    display: none;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    @include size(default, 100%, null);
+    background-color: rgba(0, 0, 0, 0.3);
+}

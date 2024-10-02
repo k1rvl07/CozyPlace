@@ -220,7 +220,7 @@ legend {
   }
 }
 
-.entertainment-cards .card__title {
+.entertainment-cards .card__title, .booking .card__title {
   font-family: "Noto Sans";
   font-weight: 600;
   font-style: normal;
@@ -228,12 +228,12 @@ legend {
   color: #283618;
 }
 @media only screen and (min-width: 1280px) {
-  .entertainment-cards .card__title {
+  .entertainment-cards .card__title, .booking .card__title {
     font-size: 26px;
   }
 }
 
-.entertainment-cards .card__price {
+.entertainment-cards .card__price, .booking .card__price {
   font-family: "Noto Sans";
   font-weight: 600;
   font-style: normal;
@@ -241,12 +241,12 @@ legend {
   color: #bc6c25;
 }
 @media only screen and (min-width: 1280px) {
-  .entertainment-cards .card__price {
+  .entertainment-cards .card__price, .booking .card__price {
     font-size: 26px;
   }
 }
 
-.entertainment-cards .card__subtitle {
+.entertainment-cards .card__subtitle, .booking .card__subtitle-text {
   font-family: "Noto Sans";
   font-weight: 500;
   font-style: normal;
@@ -254,12 +254,12 @@ legend {
   color: black;
 }
 @media only screen and (min-width: 1280px) {
-  .entertainment-cards .card__subtitle {
+  .entertainment-cards .card__subtitle, .booking .card__subtitle-text {
     font-size: 18px;
   }
 }
 
-.entertainment-cards .card__text {
+.entertainment-cards .card__text, .booking .card__text {
   font-family: "Noto Sans";
   font-weight: 400;
   font-style: normal;
@@ -267,7 +267,7 @@ legend {
   color: black;
 }
 @media only screen and (min-width: 1280px) {
-  .entertainment-cards .card__text {
+  .entertainment-cards .card__text, .booking .card__text {
     font-size: 18px;
   }
 }
@@ -283,6 +283,92 @@ legend {
   .entertainment-cards__attention-text {
     font-size: 20px;
   }
+}
+
+.booking .card__more {
+  font-family: "Noto Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
+  color: #bc6c25;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__more {
+    font-size: 20px;
+  }
+}
+
+.booking .card__hide {
+  font-family: "Noto Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
+  color: #283618;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__hide {
+    font-size: 20px;
+  }
+}
+
+.payment__title {
+  font-family: "Noto Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  color: #283618;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__title {
+    font-size: 26px;
+  }
+}
+
+.payment__subtitle {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__subtitle {
+    font-size: 20px;
+  }
+}
+
+.payment__text {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 14px;
+  color: black;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__text {
+    font-size: 18px;
+  }
+}
+
+.payment .hint__text {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+}
+@media only screen and (min-width: 1280px) {
+  .payment .hint__text {
+    font-size: 18px;
+  }
+}
+
+.payment .slogan__text {
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  color: #283618;
 }
 
 .navbar-link {
@@ -317,6 +403,22 @@ legend {
   }
 }
 
+.payment__back {
+  font-family: "Noto Sans";
+  font-weight: 600;
+  font-style: normal;
+  color: #283618;
+  font-size: 16px;
+}
+.payment__back:hover, .payment__back:active {
+  color: #bc6c25;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__back {
+    font-size: 20px;
+  }
+}
+
 .container {
   width: 300px;
   margin: 0 auto;
@@ -327,13 +429,16 @@ legend {
   }
 }
 
-.footer__social-link, .green-button, .white-button, .input, .navbar-link, .entertainment .card__link {
+.booking__input::-webkit-calendar-picker-indicator, .footer__social-link, .green-button, .white-button, .input,
+.select, .navbar-link, .entertainment .card__link, .payment__back {
   transition: 0.3s;
 }
-.footer__social-link:hover, .green-button:hover, .white-button:hover, .input:hover, .navbar-link:hover, .entertainment .card__link:hover {
+.booking__input:hover::-webkit-calendar-picker-indicator, .footer__social-link:hover, .green-button:hover, .white-button:hover, .input:hover,
+.select:hover, .navbar-link:hover, .entertainment .card__link:hover, .payment__back:hover {
   transition: 0.3s;
 }
-.footer__social-link:active, .green-button:active, .white-button:active, .input:active, .navbar-link:active, .entertainment .card__link:active {
+.booking__input:active::-webkit-calendar-picker-indicator, .footer__social-link:active, .green-button:active, .white-button:active, .input:active,
+.select:active, .navbar-link:active, .entertainment .card__link:active, .payment__back:active {
   transition: 0.05s;
 }
 
@@ -341,7 +446,8 @@ legend {
   transform: scale(0.9);
 }
 
-.input {
+.input,
+.select {
   color: #606c38;
   font-family: "Noto Sans";
   font-weight: 500;
@@ -349,15 +455,22 @@ legend {
   border-style: solid;
   border-color: #606c38;
 }
-.input:hover, .input:active, .input:focus {
+.input:hover,
+.select:hover, .input:active,
+.select:active, .input:focus,
+.select:focus {
   color: #283618;
   background-color: #ccd5ae;
   border-color: #283618;
 }
-.input:hover::placeholder, .input:active::placeholder, .input:focus::placeholder {
+.input:hover::placeholder,
+.select:hover::placeholder, .input:active::placeholder,
+.select:active::placeholder, .input:focus::placeholder,
+.select:focus::placeholder {
   color: #283618;
 }
-.input::placeholder {
+.input::placeholder,
+.select::placeholder {
   color: #606c38;
 }
 
@@ -373,7 +486,7 @@ legend {
 }
 
 .slider__slides {
-  transition: transform 0.001s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slider__slide {
@@ -1510,6 +1623,582 @@ html {
     height: 580px;
     border-width: 3px;
   }
+}
+
+.booking {
+  margin-top: 40px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking {
+    margin-top: 90px;
+  }
+}
+.booking__filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking__filter {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.booking__input, .booking__select {
+  width: 300px;
+  height: 44px;
+  border-radius: 18px;
+  border-width: 3px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking__input, .booking__select {
+    width: 290px;
+    height: 60px;
+    padding-left: 25px;
+    font-size: 18px;
+  }
+}
+.booking__select {
+  appearance: none;
+}
+.booking__select-container {
+  position: relative;
+}
+.booking__input {
+  padding-right: 18px;
+}
+.booking__input::-webkit-calendar-picker-indicator {
+  width: 18px;
+  height: 18px;
+  filter: invert(0.2) sepia(1) saturate(10) hue-rotate(60deg);
+}
+.booking__input::-webkit-calendar-picker-indicator:hover {
+  filter: invert(0.1) sepia(0.5) saturate(2) hue-rotate(70deg);
+}
+@media only screen and (min-width: 1280px) {
+  .booking__input::-webkit-calendar-picker-indicator {
+    width: 24px;
+    height: 24px;
+  }
+}
+.booking__arrow {
+  position: absolute;
+  right: 23px;
+  top: 18px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking__arrow {
+    width: 20px;
+    height: 20px;
+    top: 22px;
+  }
+}
+.booking__button {
+  width: 300px;
+  height: 44px;
+  border-radius: 18px;
+  border-width: 3px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking__button {
+    margin-top: 0px;
+    width: 290px;
+    height: 60px;
+    font-size: 18px;
+  }
+}
+.booking__cards {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking__cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+}
+.booking .card {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #606c38;
+  border-radius: 8px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card {
+    width: 630px;
+  }
+}
+.booking .card__image {
+  width: 300px;
+  height: 360px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__image {
+    width: 630px;
+    height: 418px;
+  }
+}
+.booking .card__image-container {
+  width: 300px;
+  height: 360px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__image-container {
+    width: 630px;
+    height: 418px;
+  }
+}
+.booking .card__info {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__info {
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+.booking .card__main-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.booking .card__square {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__square {
+    display: flex;
+    gap: 15px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__square-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+.booking .card__icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__icons {
+    display: flex;
+    gap: 30px;
+  }
+}
+.booking .card__icons-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: opacity 0.5s ease;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__icons-more {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+.booking .card__more {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__more {
+    display: flex;
+    gap: 10px;
+  }
+}
+.booking .card__more-arrow {
+  width: 6px;
+  height: 10px;
+  margin-top: 2px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__more-arrow {
+    width: 11px;
+    height: 18px;
+  }
+}
+.booking .card__button {
+  width: 280px;
+  height: 44px;
+  border-radius: 18px;
+  border-width: 3px;
+  font-size: 16px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__button {
+    width: 540px;
+    height: 53px;
+    font-size: 18px;
+  }
+}
+.booking .card__subtitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__subtitle {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__subtitle-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+.booking .card__text:last-child {
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__text:last-child {
+    margin-bottom: 20px;
+  }
+}
+.booking .card__hide {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__hide {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+.booking .card__hide-arrow {
+  transform: rotate(-90deg);
+  width: 6px;
+  height: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .card__hide-arrow {
+    width: 11px;
+    height: 18px;
+  }
+}
+.booking .card__additional-info {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+.booking .slider {
+  width: 300px;
+  height: 360px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  overflow: hidden;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .slider {
+    width: 627.5px;
+    height: 418px;
+  }
+}
+.booking .slider-container {
+  position: relative;
+}
+.booking .slider__slides {
+  display: flex;
+  flex-direction: space-between;
+  align-items: center;
+}
+.booking .slider__arrows {
+  position: absolute;
+  width: 300px;
+  top: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .slider__arrows {
+    width: 627px;
+    top: 170px;
+  }
+}
+.booking .slider__arrow {
+  width: 70px;
+  height: 70px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking .slider__arrow {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.payment {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 300px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment {
+    width: fit-content;
+    height: fit-content;
+  }
+}
+.payment__content {
+  background-color: #fefae0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #606c38;
+  border-radius: 10px;
+}
+.payment__content-container {
+  padding: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__content-container {
+    padding: 40px;
+  }
+}
+.payment__back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__back {
+    display: flex;
+    gap: 15px;
+  }
+}
+.payment__back-arrow {
+  transform: rotate(180deg);
+  width: 7px;
+  height: 14px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__back-arrow {
+    width: 10px;
+    height: 20px;
+  }
+}
+.payment__block {
+  background-color: #e9edc9;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__block {
+    margin-top: 30px;
+  }
+}
+.payment__block-content {
+  padding: 10px;
+}
+.payment__image {
+  width: 240px;
+  height: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__image {
+    width: 290px;
+    height: 175px;
+  }
+}
+.payment__name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment__dates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment__input {
+  width: 230px;
+  height: 44px;
+  border-radius: 18px;
+  border-width: 3px;
+  padding-left: 30px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__input {
+    width: 580px;
+    height: 60px;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}
+.payment__input-month, .payment__input-year {
+  width: 110px;
+  height: 44px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__input-month, .payment__input-year {
+    width: 180px;
+    height: 60px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .payment__input-cvv {
+    width: 180px;
+    height: 60px;
+  }
+}
+.payment__month-year-cvv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.payment__icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media only screen and (min-width: 1280px) {
+  .payment__icons {
+    width: 382px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .payment__icon {
+    width: 77px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .payment__all {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .payment__service-conditions {
+    width: 310px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .payment__hint-slogan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .payment__hint-slogan-bank {
+    width: 600px;
+  }
+}
+.payment .conditions__subtitle {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.payment .conditions__button {
+  width: 230px;
+  height: 44px;
+  border-radius: 18px;
+  border-width: 3px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment .conditions__button {
+    width: 290px;
+    height: 50px;
+    font-size: 18px;
+  }
+}
+.payment .hint__content {
+  width: 284px;
+}
+.payment .slogan {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .payment .slogan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 261px;
+    margin-top: 30px;
+  }
+}
+.payment .bank__text {
+  margin-top: 10px;
+}
+.payment .bank__button {
+  width: 230px;
+  height: 44px;
+  border-radius: 18px;
+  border-width: 3px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment .bank__button {
+    width: 580px;
+    height: 53px;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.overlay {
+  display: none;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .entertainment-cards {

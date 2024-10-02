@@ -52,8 +52,9 @@ html {
     @include button("green");
 }
 
-.input {
-    @extend %input;
+.input,
+.select {
+    @extend %input-select;
 }
 
 .navbar-link {

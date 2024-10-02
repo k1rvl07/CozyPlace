@@ -42,16 +42,24 @@ $text-list: (
   habitation-card-price "Noto Sans" bold normal color("dark-orange") 20px 24px,
   reviews-name "Noto Sans" bold normal color("dark-green") 16px 20px,
   contact-text "Noto Sans" medium normal color("dark-green") 16px 24px,
-  entertainment-card-title "Noto Sans" semi-bold normal color("dark-green") 20px 26px,
-  entertainment-card-price "Noto Sans" semi-bold normal color("dark-orange") 16px 26px,
-  entertainment-card-subtitle "Noto Sans" medium normal black 16px 18px,
-  entertainment-card-text "Noto Sans" regular normal black 16px 18px,
-  entertainment-attention "Noto Sans" semi-bold normal black 12px 20px
+  entertainment-booking-card-title "Noto Sans" semi-bold normal color("dark-green") 20px 26px,
+  entertainment-booking-card-price "Noto Sans" semi-bold normal color("dark-orange") 16px 26px,
+  entertainment-booking-card-subtitle "Noto Sans" medium normal black 16px 18px,
+  entertainment-booking-card-text "Noto Sans" regular normal black 16px 18px,
+  entertainment-attention "Noto Sans" semi-bold normal black 12px 20px,
+  booking-more "Noto Sans" semi-bold normal color("dark-orange") 12px 20px,
+  booking-hide "Noto Sans" semi-bold normal color("dark-green") 12px 20px,
+  payment-title "Noto Sans" semi-bold normal color("dark-green") 20px 26px,
+  payment-subtitle "Noto Sans" medium normal black 16px 20px,
+  payment-text "Noto Sans" medium normal black 14px 18px,
+  payment-hint "Noto Sans" medium normal black 16px 18px,
+  payment-slogan "Noto Sans" bold normal color("dark-green") 18px 18px
 );
 
 $link-list: (
   navbar "Noto Sans" medium normal color("dark-green") color("dark-orange") 14px 20px,
-  entertainment-link "Noto Sans" semi-bold normal color("dark-green") color("dark-orange") 14px 20px
+  entertainment-link "Noto Sans" semi-bold normal color("dark-green") color("dark-orange") 14px 20px,
+  payment-link "Noto Sans" semi-bold normal color("dark-green") color("dark-orange") 16px 20px
 );
 
 // Сложные миксины
@@ -300,7 +308,7 @@ $breakpoints: (
   }
 }
 
-%input {
+%input-select {
   @extend %simple-transition;
   color: color("green");
   font: {
@@ -334,7 +342,7 @@ $breakpoints: (
 }
 
 %slides {
-  transition: transform 0.001s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 %slide {

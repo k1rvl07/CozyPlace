@@ -45,20 +45,20 @@
             }
         }
         &__title {
-            @extend %entertainment-card-title;
+            @extend %entertainment-booking-card-title;
         }
         &__price {
-            @extend %entertainment-card-price;
+            @extend %entertainment-booking-card-price;
         }
         &__subtitle {
-            @extend %entertainment-card-subtitle;
+            @extend %entertainment-booking-card-subtitle;
             margin-bottom: 8px;
             @include respond-to("desktop") {
                 margin-bottom: 10px;
             }
         }
         &__text {
-            @extend %entertainment-card-text;
+            @extend %entertainment-booking-card-text;
             &:nth-child(4) {
                 margin-bottom: 10px;
                 @include respond-to("desktop") {
