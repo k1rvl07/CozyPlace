@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const nightsSelect = document.querySelector('select[name="nights"]');
     const peopleSelect = document.querySelector('select[name="people"]');
     const dateInInput = document.querySelector('.booking__input');
+    const dateInPlaceholder = document.querySelector('.booking__placeholder');
     const paymentTotal = document.querySelector('.payment__text.bank__text');
     const paymentDateIn = document.getElementById('payment-date-in');
     const paymentDateOut = document.getElementById('payment-date-out');
@@ -123,20 +124,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const paymentServicePrice = document.getElementById('payment-service-price');
     const bookingForm = document.querySelector('.booking__filter');
 
+    // Функция для сброса стилей
     function resetStyles(element) {
         element.style.borderColor = '#606c38';
         element.style.color = '';
+        dateInPlaceholder.style.color = '';
     }
 
+    // Обработчик события для инпута даты
     dateInInput.addEventListener('input', function () {
-        resetStyles(this);
-    });
-
-    nightsSelect.addEventListener('change', function () {
-        resetStyles(this);
-    });
-
-    peopleSelect.addEventListener('change', function () {
+        if (this.value) {
+            dateInPlaceholder.style.display = 'none';
+        } else {
+            dateInPlaceholder.style.display = 'block';
+        }
         resetStyles(this);
     });
 
@@ -155,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!dateIn) {
                 dateInInput.style.borderColor = '#bc6c25';
                 dateInInput.style.color = '#bc6c25';
+                dateInPlaceholder.style.color = '#bc6c25';
                 invalidElements.push(dateInInput);
                 isValid = false;
             } else {

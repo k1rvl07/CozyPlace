@@ -30,16 +30,35 @@
     }
     &__input {
         padding-right: 18px;
+        appearance: none;
         &::-webkit-calendar-picker-indicator {
-            @extend %simple-transition;
-            @include size(default, 18px);
-            filter: invert(0.2) sepia(1) saturate(10) hue-rotate(60deg);
-            &:hover {
-                filter: invert(0.1) sepia(0.5) saturate(2) hue-rotate(70deg);
-            }
+            z-index: 100;
+            opacity: 0;
             @include respond-to("desktop") {
                 @include size(default, 24px);
             }
+        }
+        &-container {
+            position: relative;
+        }
+    }
+    &__calendar {
+        position: absolute;
+        @include size(default, 15px, 15px);
+        right: 23px;
+        top: 14px;
+        @include respond-to("desktop") {
+            @include size(default, 24px);
+            top: 19px;
+        }
+    }
+    &__placeholder {
+        @extend %booking-calendar-placeholder;
+        position: absolute;
+        top: 11px;
+        left: 25px;
+        @include respond-to("desktop") {
+            display: none;
         }
     }
     &__arrow {

@@ -311,6 +311,14 @@ legend {
   }
 }
 
+.booking__placeholder {
+  font-family: "Noto Sans";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: #606c38;
+}
+
 .payment__title {
   font-family: "Noto Sans";
   font-weight: 600;
@@ -429,15 +437,15 @@ legend {
   }
 }
 
-.booking__input::-webkit-calendar-picker-indicator, .footer__social-link, .green-button, .white-button, .input,
+.footer__social-link, .green-button, .white-button, .input,
 .select, .navbar-link, .entertainment .card__link, .payment__back {
   transition: 0.3s;
 }
-.booking__input:hover::-webkit-calendar-picker-indicator, .footer__social-link:hover, .green-button:hover, .white-button:hover, .input:hover,
+.footer__social-link:hover, .green-button:hover, .white-button:hover, .input:hover,
 .select:hover, .navbar-link:hover, .entertainment .card__link:hover, .payment__back:hover {
   transition: 0.3s;
 }
-.booking__input:active::-webkit-calendar-picker-indicator, .footer__social-link:active, .green-button:active, .white-button:active, .input:active,
+.footer__social-link:active, .green-button:active, .white-button:active, .input:active,
 .select:active, .navbar-link:active, .entertainment .card__link:active, .payment__back:active {
   transition: 0.05s;
 }
@@ -1670,19 +1678,43 @@ html {
 }
 .booking__input {
   padding-right: 18px;
+  appearance: none;
 }
 .booking__input::-webkit-calendar-picker-indicator {
-  width: 18px;
-  height: 18px;
-  filter: invert(0.2) sepia(1) saturate(10) hue-rotate(60deg);
-}
-.booking__input::-webkit-calendar-picker-indicator:hover {
-  filter: invert(0.1) sepia(0.5) saturate(2) hue-rotate(70deg);
+  z-index: 100;
+  opacity: 0;
 }
 @media only screen and (min-width: 1280px) {
   .booking__input::-webkit-calendar-picker-indicator {
     width: 24px;
     height: 24px;
+  }
+}
+.booking__input-container {
+  position: relative;
+}
+.booking__calendar {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 23px;
+  top: 14px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking__calendar {
+    width: 24px;
+    height: 24px;
+    top: 19px;
+  }
+}
+.booking__placeholder {
+  position: absolute;
+  top: 11px;
+  left: 25px;
+}
+@media only screen and (min-width: 1280px) {
+  .booking__placeholder {
+    display: none;
   }
 }
 .booking__arrow {
