@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let currentIndex = 0;
         let slideWidth = slides[0].offsetWidth;
+        let isDragging = false;
+        let startX, startScrollLeft;
 
         function showSlide(index) {
             slider.style.transform = `translateX(-${index * slideWidth}px)`;
@@ -64,16 +66,21 @@ document.addEventListener('DOMContentLoaded', function () {
         prevButton.addEventListener('click', prevSlide);
 
         slider.addEventListener('touchstart', function (e) {
-            e.preventDefault();
-        }, { passive: false });
+            isDragging = true;
+            startX = e.touches[0].pageX;
+            startScrollLeft = slider.scrollLeft;
+        });
 
         slider.addEventListener('touchmove', function (e) {
-            e.preventDefault();
-        }, { passive: false });
+            if (!isDragging) return;
+            const x = e.touches[0].pageX;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = startScrollLeft - walk;
+        });
 
         slider.addEventListener('touchend', function (e) {
-            e.preventDefault();
-        }, { passive: false });
+            isDragging = false;
+        });
 
         function checkScreenSize() {
             if (window.innerWidth <= 1280) {
@@ -86,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
         checkScreenSize();
     });
 });
-
 
 // Центрирование модального окна
 
