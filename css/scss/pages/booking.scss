@@ -44,9 +44,9 @@
     }
     &__calendar {
         position: absolute;
-        @include size(default, 15px, 15px);
+        @include size(default, 18px, 18px);
         right: 23px;
-        top: 14px;
+        top: 13px;
         @include respond-to("desktop") {
             @include size(default, 24px);
             top: 19px;

@@ -1695,10 +1695,10 @@ html {
 }
 .booking__calendar {
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   right: 23px;
-  top: 14px;
+  top: 13px;
 }
 @media only screen and (min-width: 1280px) {
   .booking__calendar {
