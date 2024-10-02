@@ -130,11 +130,51 @@ document.addEventListener('DOMContentLoaded', function () {
     const paymentServicePrice = document.getElementById('payment-service-price');
     const bookingForm = document.querySelector('.booking__filter');
 
+    const calendarIcon = document.querySelector('.booking__calendar');
+    const arrowIcons = document.querySelectorAll('.booking__arrow');
+
     function resetStyles(element) {
         element.style.borderColor = '#606c38';
         element.style.color = '';
         dateInPlaceholder.style.color = '';
+        changeIconColor([calendarIcon], '#606c38', 'fill');
+        arrowIcons.forEach(arrow => changeIconColor([arrow], '#606c38', 'stroke'));
     }
+
+    function changeIconColor(elements, color, attribute) {
+        elements.forEach(element => {
+            if (element.nodeName === 'svg') {
+                element.querySelectorAll('path').forEach(path => {
+                    path.style[attribute] = color;
+                });
+            } else {
+                element.style[attribute] = color;
+            }
+        });
+    }
+
+    function addTransition(elements, duration) {
+        elements.forEach(element => {
+            if (element.nodeName === 'svg') {
+                element.querySelectorAll('path').forEach(path => {
+                    path.style.transition = `all ${duration}s ease`;
+                });
+            } else {
+                element.style.transition = `all ${duration}s ease`;
+            }
+        });
+    }
+
+    addTransition([calendarIcon, ...arrowIcons], 0.3);
+
+    dateInInput.addEventListener('focus', function () {
+        resetStyles(this);
+        changeIconColor([calendarIcon], '#283618', 'fill');
+    });
+
+    dateInInput.addEventListener('blur', function () {
+        changeIconColor([calendarIcon], '#606c38', 'fill');
+    });
 
     dateInInput.addEventListener('input', function () {
         if (this.value) {
@@ -161,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 dateInInput.style.borderColor = '#bc6c25';
                 dateInInput.style.color = '#bc6c25';
                 dateInPlaceholder.style.color = '#bc6c25';
+                changeIconColor([calendarIcon], '#bc6c25', 'fill');
                 invalidElements.push(dateInInput);
                 isValid = false;
             } else {
@@ -170,6 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (nights === 'Количество ночей') {
                 nightsSelect.style.borderColor = '#bc6c25';
                 nightsSelect.style.color = '#bc6c25';
+                changeIconColor([arrowIcons[0]], '#bc6c25', 'stroke');
                 invalidElements.push(nightsSelect);
                 isValid = false;
             } else {
@@ -179,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (people === 'Количество гостей') {
                 peopleSelect.style.borderColor = '#bc6c25';
                 peopleSelect.style.color = '#bc6c25';
+                changeIconColor([arrowIcons[1]], '#bc6c25', 'stroke');
                 invalidElements.push(peopleSelect);
                 isValid = false;
             } else {
@@ -223,5 +266,112 @@ document.addEventListener('DOMContentLoaded', function () {
         bookingForm.scrollIntoView({ behavior: 'smooth' });
         overlay.style.display = 'none';
         paymentModal.style.display = 'none';
+    });
+
+    document.querySelectorAll('.booking__select').forEach((select, index) => {
+        select.addEventListener('focus', function () {
+            resetStyles(this);
+            changeIconColor([arrowIcons[index]], '#283618', 'stroke');
+        });
+
+        select.addEventListener('blur', function () {
+            changeIconColor([arrowIcons[index]], '#606c38', 'stroke');
+        });
+
+        select.addEventListener('mousedown', function () {
+            changeIconColor([arrowIcons[index]], '#283618', 'stroke');
+        });
+
+        select.addEventListener('mouseup', function () {
+            changeIconColor([arrowIcons[index]], '#606c38', 'stroke');
+        });
+
+        select.addEventListener('mouseenter', function () {
+            if (!select.value) {
+                resetStyles(this);
+                changeIconColor([arrowIcons[index]], '#283618', 'stroke');
+            }
+        });
+
+        select.addEventListener('mouseleave', function () {
+            if (!select.value) {
+                changeIconColor([arrowIcons[index]], '#606c38', 'stroke');
+            }
+        });
+
+        select.addEventListener('click', function () {
+            changeIconColor([arrowIcons[index]], '#283618', 'stroke');
+        });
+    });
+
+    document.querySelectorAll('.booking__input, .booking__select').forEach((input, index) => {
+        input.addEventListener('mouseenter', function () {
+            if (!input.value) {
+                resetStyles(this);
+                if (input === dateInInput) {
+                    changeIconColor([calendarIcon], '#283618', 'fill');
+                } else {
+                    changeIconColor([arrowIcons[index - 1]], '#283618', 'stroke');
+                }
+            }
+        });
+
+        input.addEventListener('mouseleave', function () {
+            if (!input.value) {
+                if (input === dateInInput) {
+                    changeIconColor([calendarIcon], '#606c38', 'fill');
+                } else {
+                    changeIconColor([arrowIcons[index - 1]], '#606c38', 'stroke');
+                }
+            }
+        });
+
+        input.addEventListener('mousedown', function () {
+            if (input === dateInInput) {
+                changeIconColor([calendarIcon], '#283618', 'fill');
+            } else {
+                changeIconColor([arrowIcons[index - 1]], '#283618', 'stroke');
+            }
+        });
+
+        input.addEventListener('mouseup', function () {
+            if (input === dateInInput) {
+                changeIconColor([calendarIcon], '#606c38', 'fill');
+            } else {
+                changeIconColor([arrowIcons[index - 1]], '#606c38', 'stroke');
+            }
+        });
+
+        input.addEventListener('click', function () {
+            if (input === dateInInput) {
+                changeIconColor([calendarIcon], '#283618', 'fill');
+            } else {
+                changeIconColor([arrowIcons[index - 1]], '#283618', 'stroke');
+            }
+        });
+    });
+
+    calendarIcon.addEventListener('mouseenter', function () {
+        if (!dateInInput.value) {
+            changeIconColor([calendarIcon], '#283618', 'fill');
+        }
+    });
+
+    calendarIcon.addEventListener('mouseleave', function () {
+        if (!dateInInput.value) {
+            changeIconColor([calendarIcon], '#606c38', 'fill');
+        }
+    });
+
+    calendarIcon.addEventListener('mousedown', function () {
+        changeIconColor([calendarIcon], '#283618', 'fill');
+    });
+
+    calendarIcon.addEventListener('mouseup', function () {
+        changeIconColor([calendarIcon], '#606c38', 'fill');
+    });
+
+    calendarIcon.addEventListener('click', function () {
+        changeIconColor([calendarIcon], '#283618', 'fill');
     });
 });
