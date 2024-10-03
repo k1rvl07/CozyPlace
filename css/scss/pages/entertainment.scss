@@ -6,16 +6,18 @@
     &__content {
         @include flex(on, column, space-between, center, wrap, 10px);
         @include respond-to("desktop") {
-            @include flex(on, row, $gap: 10px);
+            @include flex(on, row, $gap: 0px);
         }
     }
     &__attention {
         background-color: color("extra-green");
         margin-top: 20px;
+        border-radius: 10px;
         @include respond-to("desktop") {
             margin-top: 30px;
             @include size(default, fit-content);
             @include axis-indent(margin, x, auto);
+            border-radius: 18px;
         }
         &-text {
             @extend %entertainment-attention;
@@ -28,6 +30,12 @@
     .card {
         @include border(all, 2px, solid, color("green"), 8px);
         @include size(default, fit-content);
+        &:nth-child(3),
+        &:nth-child(4) {
+            @include respond-to("desktop") {
+                margin-top: 15px;
+            }
+        }
         &__content {
             @include axis-indent(padding, xy, 10px, 10px);
             @include respond-to("desktop") {
