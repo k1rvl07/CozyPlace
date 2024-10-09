@@ -411,7 +411,10 @@
             @extend %payment-hint;
         }
         &__content {
-            @include size(default, 284px, null);
+            @include size(default, 260px, null);
+            @include respond-to("desktop") {
+                @include size(default, 284px, null);
+            }
         }
     }
     .slogan {

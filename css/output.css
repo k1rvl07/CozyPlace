@@ -2188,7 +2188,12 @@ html {
   }
 }
 .payment .hint__content {
-  width: 284px;
+  width: 260px;
+}
+@media only screen and (min-width: 1280px) {
+  .payment .hint__content {
+    width: 284px;
+  }
 }
 .payment .slogan {
   display: none;
