@@ -753,7 +753,7 @@ html {
   background-image: url("../images/main_photo.png");
   background-repeat: no-repeat;
   background-position: center;
-  height: 242px;
+  height: 320px;
 }
 @media only screen and (min-width: 1280px) {
   .main {
@@ -762,7 +762,7 @@ html {
   }
 }
 .main__content {
-  padding-top: 35px;
+  padding-top: 75px;
 }
 @media only screen and (min-width: 1280px) {
   .main__content {
@@ -940,6 +940,27 @@ html {
   .habitation {
     margin-top: 90px;
   }
+}
+.habitation__indicators {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 1280px) {
+  .habitation__indicators {
+    display: none;
+  }
+}
+.habitation__indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
 }
 .habitation .card {
   width: 300px;
@@ -1176,6 +1197,27 @@ html {
     margin-top: 90px;
   }
 }
+.entertainment__indicators {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 1280px) {
+  .entertainment__indicators {
+    display: none;
+  }
+}
+.entertainment__indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
 .entertainment .card {
   background-color: #e9edc9;
   width: 300px;
@@ -1351,6 +1393,27 @@ html {
     margin-top: 90px;
   }
 }
+.reviews__indicators {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 1280px) {
+  .reviews__indicators {
+    display: none;
+  }
+}
+.reviews__indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
 .reviews .card__reviewer {
   background-color: #e9edc9;
   width: fit-content;
@@ -1446,6 +1509,7 @@ html {
   gap: 25px;
 }
 .photos__image {
+  object-fit: cover;
   border-radius: 18px;
   transition: opacity 0.5s ease-in-out;
   width: 300px;
@@ -1774,6 +1838,7 @@ html {
   }
 }
 .booking .card__image {
+  object-fit: cover;
   width: 300px;
   height: 360px;
 }
@@ -2350,6 +2415,7 @@ html {
   }
 }
 .entertainment-cards .card__image {
+  object-fit: cover;
   width: 300px;
   height: 360px;
   border-top-left-radius: 6px;

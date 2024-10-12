@@ -75,6 +75,7 @@
             }
         }
         &__image {
+            object-fit: cover;
             @include size(default, 300px, 360px);
             border-top-left-radius: 6px;
             border-top-right-radius: 6px;

@@ -104,6 +104,108 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', checkScreenWidth);
 });
 
+// Изменение индикаторов в блоке "Проживание"
+
+document.addEventListener('DOMContentLoaded', function () {
+    function updateIndicators(currentIndex) {
+        const indicators = document.querySelectorAll('.habitation__indicator');
+        indicators.forEach((indicator, index) => {
+            indicator.style.backgroundColor = index === currentIndex ? '#606c38' : '#ccd5ae';
+        });
+    }
+
+    function handleIntersect(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const slideIndex = Array.from(slides).indexOf(entry.target);
+                updateIndicators(slideIndex);
+            }
+        });
+    }
+
+    const slides = document.querySelectorAll('.habitation .slider__slide');
+
+    const observer = new IntersectionObserver(handleIntersect, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    });
+
+    slides.forEach(slide => {
+        observer.observe(slide);
+    });
+
+    updateIndicators(0);
+});
+
+// Изменение индикаторов в блоке "Развлечения"
+
+document.addEventListener('DOMContentLoaded', function () {
+    function updateIndicators(currentIndex) {
+        const indicators = document.querySelectorAll('.entertainment__indicator');
+        indicators.forEach((indicator, index) => {
+            indicator.style.backgroundColor = index === currentIndex ? '#606c38' : '#ccd5ae';
+        });
+    }
+
+    function handleIntersect(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const slideIndex = Array.from(slides).indexOf(entry.target);
+                updateIndicators(slideIndex);
+            }
+        });
+    }
+
+    const slides = document.querySelectorAll('.entertainment .slider__slide');
+
+    const observer = new IntersectionObserver(handleIntersect, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    });
+
+    slides.forEach(slide => {
+        observer.observe(slide);
+    });
+
+    updateIndicators(0);
+});
+
+// Изменение индикаторов в блоке "Отзывы"
+
+document.addEventListener('DOMContentLoaded', function () {
+    function updateIndicators(currentIndex) {
+        const indicators = document.querySelectorAll('.reviews__indicator');
+        indicators.forEach((indicator, index) => {
+            indicator.style.backgroundColor = index === currentIndex ? '#606c38' : '#ccd5ae';
+        });
+    }
+
+    function handleIntersect(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const slideIndex = Array.from(slides).indexOf(entry.target);
+                updateIndicators(slideIndex);
+            }
+        });
+    }
+
+    const slides = document.querySelectorAll('.reviews .slider__slide');
+
+    const observer = new IntersectionObserver(handleIntersect, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    });
+
+    slides.forEach(slide => {
+        observer.observe(slide);
+    });
+
+    updateIndicators(0);
+});
+
 // Открытие и закрытие вопросов в блоке "Частые вопросы"
 
 document.addEventListener('DOMContentLoaded', function () {

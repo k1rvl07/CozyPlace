@@ -2,13 +2,13 @@
     background-image: url("../images/main_photo.png");
     background-repeat: no-repeat;
     background-position: center;
-    @include size(default, null, 242px);
+    @include size(default, null, 320px);
     @include respond-to("desktop") {
         background-image: url("../images/main_photo_desktop.png");
         @include size(default, null, 700px);
     }
     &__content {
-        padding-top: 35px;
+        padding-top: 75px;
         @include respond-to("desktop") {
             padding-top: 357px;
             @include flex(on, $justify: center);
@@ -143,6 +143,20 @@
     margin-top: 40px;
     @include respond-to("desktop") {
         margin-top: 90px;
+    }
+    &__indicators {
+        @include size(default, fit-content);
+        @include flex(on, $align: center, $gap: 20px);
+        margin-top: 20px;
+        @include axis-indent(margin, x, auto);
+        @include respond-to("desktop") {
+            display: none;
+        }
+    }
+    &__indicator {
+        @include size(default, 16px);
+        border-radius: 50%;
+        transition: all 0.2s ease-in-out;
     }
     .card {
         @include size(default, 300px, 477px);
@@ -304,6 +318,20 @@
     @include respond-to("desktop") {
         margin-top: 90px;
     }
+    &__indicators {
+        @include size(default, fit-content);
+        @include flex(on, $align: center, $gap: 20px);
+        margin-top: 20px;
+        @include axis-indent(margin, x, auto);
+        @include respond-to("desktop") {
+            display: none;
+        }
+    }
+    &__indicator {
+        @include size(default, 16px);
+        border-radius: 50%;
+        transition: all 0.2s ease-in-out;
+    }
     .card {
         background-color: color("extra-green");
         @include size(default, 300px, 362px);
@@ -420,6 +448,20 @@
     @include respond-to("desktop") {
         margin-top: 90px;
     }
+    &__indicators {
+        @include size(default, fit-content);
+        @include flex(on, $align: center, $gap: 20px);
+        margin-top: 20px;
+        @include axis-indent(margin, x, auto);
+        @include respond-to("desktop") {
+            display: none;
+        }
+    }
+    &__indicator {
+        @include size(default, 16px);
+        border-radius: 50%;
+        transition: all 0.2s ease-in-out;
+    }
     .card {
         &__reviewer {
             background-color: color("extra-green");
@@ -487,6 +529,7 @@
         @include flex(on, $wrap: wrap, $gap: 25px);
     }
     &__image {
+        object-fit: cover;
         border-radius: 18px;
         transition: opacity 0.5s ease-in-out;
         @include size(default, 300px, 280px);

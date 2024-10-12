@@ -97,6 +97,7 @@
             width: 630px;
         }
         &__image {
+            object-fit: cover;
             @include size(default, 300px, 360px);
             @include respond-to("desktop") {
                 @include size(default, 630px, 418px);
